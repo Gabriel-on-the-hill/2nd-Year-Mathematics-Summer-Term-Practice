@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JC HL Maths — Summer Exam Practice</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    :root {
+      --pitch-green: #14532D;
+      --gold: #FAC415;
+      --cream: #FAFAFA;
+      --navy: #0F172A;
+      --bg: #F5F4EE;
+      --card: #FFFFFF;
+      --muted: #64748B;
+      --green-light: #E7F0EA;
+      --gold-light: #FEF3C7;
+      --border: #E5E7EB;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--navy);
+      line-height: 1.55
+    }
+
+    header {
+      background: var(--pitch-green);
+      color: #fff;
+      padding: 1.4rem 1.5rem;
+      border-bottom: 5px solid var(--gold);
+      position: relative
+    }
+
+    header h1 {
+      margin: 0 0 .25rem 0;
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: -.01em
+    }
+
+    header p {
+      margin: 0;
+      opacity: .85;
+      font-size: .92rem
+    }
+
+    nav.topics {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: .6rem 1rem;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
+      overflow-x: auto;
+      white-space: nowrap
+    }
+
+    nav.topics a {
+      display: inline-block;
+      padding: .4rem .85rem;
+      margin-right: .35rem;
+      color: var(--pitch-green);
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      font-size: .9rem;
+      border: 1px solid transparent
+    }
+
+    nav.topics a:hover {
+      background: var(--green-light)
+    }
+
+    nav.topics a.active {
+      background: var(--pitch-green);
+      color: #fff
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 4rem
+    }
+
+    section.topic {
+      margin-top: 2rem;
+      scroll-margin-top: 80px
+    }
+
+    section.topic>h2 {
+      color: var(--pitch-green);
+      font-size: 1.5rem;
+      margin: 0 0 .3rem 0;
+      padding-bottom: .4rem;
+      border-bottom: 3px solid var(--gold);
+      display: inline-block;
+      padding-right: 1rem
+    }
+
+    section.topic>p.intro {
+      margin: .4rem 0 1.2rem 0;
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    .qcard {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.2rem;
+      margin-bottom: 1.1rem;
+      border-left: 5px solid var(--gold);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .03)
+    }
+
+    .qhead {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: .6rem
+    }
+
+    .qtag {
+      background: var(--pitch-green);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .2rem .55rem;
+      border-radius: 4px;
+      letter-spacing: .02em
+    }
+
+    .qtime {
+      background: var(--gold-light);
+      color: #7C5E11;
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .2rem .55rem;
+      border-radius: 4px
+    }
+
+    .qbadge-adv {
+      background: #B45309;
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .2rem .55rem;
+      border-radius: 4px;
+      letter-spacing: .02em
+    }
+
+    .qcard.advanced {
+      border-left-color: #B45309;
+      background: #FFFBEB
+    }
+
+    .advnote {
+      background: #FEF3C7;
+      border-left: 3px solid #B45309;
+      padding: .5rem .75rem;
+      margin: .5rem 0;
+      font-size: .88rem;
+      color: #7C2D12;
+      border-radius: 4px
+    }
+
+    .advnote strong {
+      color: #B45309
+    }
+
+    .qtitle {
+      font-weight: 600;
+      color: var(--pitch-green);
+      font-size: 1.02rem;
+      margin-left: auto
+    }
+
+    .qbody {
+      font-size: .98rem
+    }
+
+    .qbody p {
+      margin: .5rem 0
+    }
+
+    .qbody ul {
+      margin: .4rem 0;
+      padding-left: 1.5rem
+    }
+
+    .qbody .pp {
+      font-weight: 600;
+      color: var(--pitch-green)
+    }
+
+    .diagram {
+      margin: .9rem 0;
+      padding: .8rem;
+      background: #FAFAF7;
+      border: 1px dashed #D4D4C8;
+      border-radius: 6px;
+      text-align: center
+    }
+
+    .diagram svg {
+      max-width: 100%;
+      height: auto
+    }
+
+    .pdf-ref {
+      font-size: .82rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-top: .3rem
+    }
+
+    button.reveal {
+      background: var(--pitch-green);
+      color: #fff;
+      border: none;
+      padding: .5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: .88rem;
+      font-weight: 500;
+      margin-top: .5rem;
+      font-family: inherit
+    }
+
+    button.reveal:hover {
+      background: #0F3D22
+    }
+
+    .answer {
+      margin-top: .8rem;
+      padding: .9rem 1rem;
+      background: var(--green-light);
+      border-left: 4px solid var(--pitch-green);
+      border-radius: 6px;
+      display: none
+    }
+
+    .answer.show {
+      display: block
+    }
+
+    .answer h4 {
+      margin: 0 0 .4rem 0;
+      color: var(--pitch-green);
+      font-size: .95rem
+    }
+
+    .answer p {
+      margin: .4rem 0
+    }
+
+    .answer .final {
+      background: var(--gold-light);
+      padding: .4rem .7rem;
+      border-radius: 4px;
+      display: inline-block;
+      margin-top: .4rem;
+      font-weight: 600
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 1.5rem 0
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: var(--muted);
+      font-size: .85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem
+    }
+
+    .legend {
+      font-size: .85rem;
+      color: var(--muted);
+      margin: .5rem 0 1rem
+    }
+
+    .legend strong {
+      color: var(--pitch-green)
+    }
+
+    @media (max-width:600px) {
+      main {
+        padding: 1rem .8rem 3rem
+      }
+
+      .qcard {
+        padding: .9rem .95rem
+      }
+
+      .qtitle {
+        margin-left: 0;
+        width: 100%;
+        font-size: .95rem
+      }
+
+      header h1 {
+        font-size: 1.3rem
+      }
+    }
+
+    /* ===== PROGRESS TRACKING ===== */
+    .overall-progress {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+    .overall-progress .op-counts {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+    .op-stat { text-align: center; }
+    .op-stat .num { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+    .op-stat .lbl { font-size: .72rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-top: .1rem; }
+    .op-stat.gotit .num  { color: var(--pitch-green); }
+    .op-stat.tried .num  { color: #D97706; }
+    .op-stat.revisit .num{ color: #B45309; }
+    .op-stat.total .num  { color: var(--navy); }
+    .op-actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+    .btn-export {
+      background: var(--pitch-green); color: #fff; border: none;
+      padding: .45rem .9rem; border-radius: 6px; cursor: pointer;
+      font-size: .85rem; font-weight: 500; font-family: inherit;
+    }
+    .btn-export:hover { background: #0F3D22; }
+    .btn-reset-all {
+      background: #fff; color: var(--muted); border: 1px solid var(--border);
+      padding: .45rem .9rem; border-radius: 6px; cursor: pointer;
+      font-size: .85rem; font-family: inherit;
+    }
+    .btn-reset-all:hover { color: #DC2626; border-color: #DC2626; }
+
+    /* section progress bar */
+    .sec-progress { margin: .3rem 0 1rem; }
+    .sec-progress-label {
+      font-size: .8rem; color: var(--muted);
+      display: flex; justify-content: space-between; margin-bottom: .3rem;
+    }
+    .sec-progress-label .sp-revisit {
+      background: #FEF3C7; color: #B45309; padding: .05rem .4rem;
+      border-radius: 4px; font-weight: 600; font-size: .72rem;
+    }
+    .sec-progress-track {
+      height: 8px; background: #E5E7EB; border-radius: 99px; overflow: hidden;
+      display: flex;
+    }
+    .sp-fill-got  { background: var(--pitch-green); height: 100%; transition: width .3s; }
+    .sp-fill-tried{ background: #FCD34D;            height: 100%; transition: width .3s; }
+
+    /* per-card status row */
+    .status-row {
+      display: flex; align-items: center; gap: .5rem;
+      margin-top: .75rem; padding-top: .65rem;
+      border-top: 1px solid var(--border);
+    }
+    .btn-status {
+      border: 1.5px solid var(--border); background: #fff; color: var(--muted);
+      padding: .32rem .7rem; border-radius: 6px; cursor: pointer;
+      font-size: .82rem; font-weight: 500; font-family: inherit; transition: all .15s;
+    }
+    .btn-status:hover { border-color: var(--pitch-green); color: var(--pitch-green); }
+    .btn-status.attempted {
+      background: var(--gold-light); border-color: #D97706; color: #7C5E11;
+    }
+    .btn-status.got-it {
+      background: var(--pitch-green); border-color: var(--pitch-green); color: #fff;
+    }
+    .btn-revisit {
+      border: 1.5px solid var(--border); background: #fff; color: #94A3B8;
+      padding: .32rem .55rem; border-radius: 6px; cursor: pointer;
+      font-size: .85rem; font-family: inherit; transition: all .15s; line-height: 1;
+    }
+    .btn-revisit:hover { border-color: #B45309; }
+    .btn-revisit.flagged { background: #FEF3C7; border-color: #B45309; color: #B45309; }
+    .status-hint { font-size: .75rem; color: var(--muted); margin-left: auto; }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Junior Cycle Higher Level Mathematics</h1>
+    <p>Summer Exam Practice + Exam-Style Gap Questions</p>
+  </header>
+
+  <nav class="topics" id="topnav">
+    <a href="#area-volume" class="navlink">Area &amp; Volume</a>
+    <a href="#geometry" class="navlink">Geometry &amp; Constructions</a>
+    <a href="#factorising" class="navlink">Factorising</a>
+    <a href="#algebra" class="navlink">Algebra</a>
+    <a href="#quadratics" class="navlink">Quadratic Equations</a>
+    <a href="#trigonometry" class="navlink">Trigonometry</a>
+  </nav>
+
+  <main>
+
+    <p class="legend">
+      <strong>How to use:</strong> Try each question on paper first. Mark every step — Irish marking awards attempt
+      marks generously. Click <em>Show worked solution</em> only after a real attempt. Use the status button on each
+      card to record your progress — it saves automatically in this browser.
+    </p>
+
+    <div class="overall-progress" id="overall-progress">
+      <div class="op-counts">
+        <div class="op-stat gotit">
+          <div class="num" id="op-gotit">0</div>
+          <div class="lbl">Got it</div>
+        </div>
+        <div class="op-stat tried">
+          <div class="num" id="op-tried">0</div>
+          <div class="lbl">Attempted</div>
+        </div>
+        <div class="op-stat revisit">
+          <div class="num" id="op-revisit">0</div>
+          <div class="lbl">Revisit</div>
+        </div>
+        <div class="op-stat total">
+          <div class="num" id="op-total">0</div>
+          <div class="lbl">Total</div>
+        </div>
+      </div>
+      <div class="op-actions">
+        <button class="btn-export" id="btn-export">Export progress</button>
+        <button class="btn-reset-all" id="btn-reset-all">Reset all</button>
+      </div>
+    </div>
+
+    <!-- ============================ AREA & VOLUME ============================ -->
+    <section class="topic" id="area-volume">
+      <h2>1 &middot; Area &amp; Volume</h2>
+      <p class="intro">Surface area, volume, composite shapes, nets.</p>
+
+      <!-- Q1.1 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2022 · Q5</span><span class="qtime">10 min</span>
+          <span class="qtitle">Balloon pump — cylinder &amp; sphere</span>
+        </div>
+        <div class="qbody">
+          <p>A balloon pump is a cylinder with internal <strong>diameter 6 cm</strong> and <strong>height 20
+              cm</strong>. Each pump passes one full cylinder of air into a balloon.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 320 110" width="280">
+              <defs>
+                <pattern id="hatch1" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+                  <line x1="0" y1="0" x2="0" y2="6" stroke="#14532D" stroke-width="1" opacity=".15" />
+                </pattern>
+              </defs>
+              <rect x="40" y="30" width="180" height="50" fill="url(#hatch1)" stroke="#14532D" stroke-width="2" />
+              <ellipse cx="40" cy="55" rx="6" ry="25" fill="#fff" stroke="#14532D" stroke-width="2" />
+              <ellipse cx="220" cy="55" rx="6" ry="25" fill="#14532D" opacity=".2" stroke="#14532D" stroke-width="2" />
+              <rect x="226" y="48" width="40" height="14" fill="#14532D" opacity=".3" stroke="#14532D"
+                stroke-width="2" />
+              <rect x="20" y="42" width="20" height="26" fill="#14532D" stroke="#14532D" stroke-width="2" />
+              <text x="130" y="20" text-anchor="middle" font-size="12" fill="#0F172A">20 cm</text>
+              <line x1="40" y1="25" x2="220" y2="25" stroke="#0F172A" stroke-width="1" />
+              <line x1="40" y1="22" x2="40" y2="28" stroke="#0F172A" />
+              <line x1="220" y1="22" x2="220" y2="28" stroke="#0F172A" />
+              <text x="245" y="58" font-size="12" fill="#0F172A">6 cm</text>
+              <line x1="234" y1="35" x2="234" y2="75" stroke="#0F172A" />
+            </svg>
+          </div>
+          <p><span class="pp">(a)</span> Show that the volume of one full cylinder of air is <strong>180π cm³</strong>.
+          </p>
+          <p><span class="pp">(b)(i)</span> Darragh inflates a <strong>spherical balloon of radius 15 cm</strong>. Find
+            its volume in cm³, in terms of π.</p>
+          <p><span class="pp">(b)(ii)</span> Darragh pumps once per second. How many seconds to fully inflate?</p>
+          <p><span class="pp">(c)</span> Gustav's bigger spherical balloon is fully inflated after <strong>50
+              seconds</strong>. Find Gustav's balloon radius, to 1 d.p.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> Radius = 3 cm (half of 6). $V = \pi r^2 h = \pi(3)^2(20) = 180\pi$ cm³. ✓</p>
+          <p><strong>(b)(i)</strong> $V = \frac{4}{3}\pi r^3 = \frac{4}{3}\pi(15)^3 = \frac{4}{3}\pi(3375) = 4500\pi$
+            cm³.</p>
+          <p><strong>(b)(ii)</strong> Pumps needed $= \dfrac{4500\pi}{180\pi} = 25$. <span class="final">25
+              seconds</span></p>
+          <p><strong>(c)</strong> After 50 pumps: volume $= 50 \times 180\pi = 9000\pi$ cm³. So $\frac{4}{3}\pi r^3 =
+            9000\pi$ → $r^3 = 6750$ → $r = \sqrt[3]{6750}$. <span class="final">r ≈ 18.9 cm</span></p>
+        </div>
+      </div>
+
+      <!-- Q1.2 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2023 · Q3</span><span class="qtime">10 min</span>
+          <span class="qtitle">Block of wax → cylindrical candles</span>
+        </div>
+        <div class="qbody">
+          <p>A solid block of wax measures <strong>35 cm × 45 cm × 16 cm</strong>.</p>
+          <p><span class="pp">(a)</span> Find the volume of the block.</p>
+          <p><span class="pp">(b)</span> The wax is recast into cylindrical candles of radius $r$ cm and height
+            <strong>9 cm</strong>. Find the volume of each candle in terms of $r$ and $\pi$.</p>
+          <p><span class="pp">(c)</span> 100 candles are made; <strong>10% of the wax is wasted</strong>. Find $r$, to 1
+            d.p.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> $V = 35 \times 45 \times 16 = 25{,}200$ cm³.</p>
+          <p><strong>(b)</strong> $V = \pi r^2 (9) = 9\pi r^2$ cm³.</p>
+          <p><strong>(c)</strong> Wax used = 90% of 25,200 = 22,680 cm³ for 100 candles → each candle uses $226.8$ cm³.
+            $9\pi r^2 = 226.8$ → $r^2 = \dfrac{226.8}{9\pi} \approx 8.021$ → $r \approx 2.832$. <span class="final">r ≈
+              2.8 cm</span></p>
+        </div>
+      </div>
+
+      <!-- Q1.3 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2024 · Q4(c)</span><span class="qtime">3 min</span>
+          <span class="qtitle">Cylindrical glass volume</span>
+        </div>
+        <div class="qbody">
+          <p>A glass is a cylinder with <strong>diameter 6 cm</strong> and <strong>height 10 cm</strong>. Find its
+            volume to the nearest cm³.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>Radius = 3 cm. $V = \pi r^2 h = \pi(3)^2(10) = 90\pi \approx 282.74$. <span class="final">V ≈ 283
+              cm³</span></p>
+        </div>
+      </div>
+
+      <!-- Q1.4 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2024 · Q6</span><span class="qtime">5 min</span>
+          <span class="qtitle">Net of a triangular prism</span>
+        </div>
+        <div class="qbody">
+          <p>A chocolate bar is a prism: front and back faces are <strong>equilateral triangles of side 3 cm</strong>;
+            the other three faces are <strong>rectangles 9 cm long</strong>.</p>
+          <p>On 1 cm grid paper, draw the four missing faces to complete an accurate <strong>net</strong>. One
+            triangular face is given.</p>
+          <p class="pdf-ref">See 2024 PDF page 10 for the grid.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>Layout: the given equilateral triangle sits on its right-hand side. To its right, draw three rectangles in
+            a row, each <strong>3 cm × 9 cm</strong> (one for each side of the triangular face). Beyond those, attach a
+            second equilateral triangle (mirror of the first) to close the prism.</p>
+          <p>Check: prism has 5 faces — 2 triangular ends + 3 rectangles. Net has 5 faces total. ✓</p>
+        </div>
+      </div>
+
+      <!-- Q1.5 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2024 · Q7</span><span class="qtime">10 min</span>
+          <span class="qtitle">Cube &amp; cuboid — volume, surface area, hidden cuboid</span>
+        </div>
+        <div class="qbody">
+          <p>Cube $A$ has edges $x$ cm. Cuboid $B$ has dimensions <strong>5 × 6 × y</strong> cm.</p>
+          <p><span class="pp">(a)</span> Volume of $A$ = 216 cm³. Find $x$.</p>
+          <p><span class="pp">(b)(i)</span> Show that the surface area of $B$ is $(22y + 60)$ cm².</p>
+          <p><span class="pp">(b)(ii)</span> Surface area of $B$ = 269 cm². Find $y$.</p>
+          <p><span class="pp">(c)</span> A different cuboid (whole-number dimensions $l, m, p$) has three face areas:
+            <strong>96, 48, 32</strong> cm². Find its volume in cm³.</p>
+          <p class="pdf-ref">See 2024 PDF pages 11–12 for the figure.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> $x^3 = 216 → x = \sqrt[3]{216} = 6$. <span class="final">x = 6 cm</span></p>
+          <p><strong>(b)(i)</strong> $S = 2(lw + lh + wh) = 2(5 \cdot 6 + 5y + 6y) = 2(30 + 11y) = 22y + 60$. ✓</p>
+          <p><strong>(b)(ii)</strong> $22y + 60 = 269$ → $22y = 209$ → <span class="final">y = 9.5 cm</span></p>
+          <p><strong>(c)</strong> Let face areas be $lm = 96$, $mp = 48$, $lp = 32$. Multiplying all three: $(lmp)^2 =
+            96 \times 48 \times 32 = 147{,}456$, so $lmp = \sqrt{147456} = 384$. <span class="final">V = 384 cm³</span>
+          </p>
+          <p>(Check: $l = 384/48 = 8$, $m = 384/32 = 12$, $p = 384/96 = 4$. All whole numbers ✓.)</p>
+        </div>
+      </div>
+
+      <!-- Q1.6 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2025 · Q7</span><span class="qtime">15 min</span>
+          <span class="qtitle">Golf course (rectangle + semicircle) &amp; cylinder tanks</span>
+        </div>
+        <div class="qbody">
+          <p>A golf section is a <strong>rectangle with a semicircle at one end</strong>: total length 300 m, width 50
+            m.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 380 100" width="360">
+              <path d="M 20 20 L 280 20 A 30 30 0 0 1 280 80 L 20 80 Z" fill="#A7D8B6" stroke="#14532D"
+                stroke-width="2" />
+              <line x1="20" y1="10" x2="310" y2="10" stroke="#0F172A" />
+              <line x1="20" y1="6" x2="20" y2="14" stroke="#0F172A" />
+              <line x1="310" y1="6" x2="310" y2="14" stroke="#0F172A" />
+              <text x="165" y="6" text-anchor="middle" font-size="11">300 m</text>
+              <line x1="10" y1="20" x2="10" y2="80" stroke="#0F172A" />
+              <line x1="6" y1="20" x2="14" y2="20" stroke="#0F172A" />
+              <line x1="6" y1="80" x2="14" y2="80" stroke="#0F172A" />
+              <text x="2" y="55" font-size="11">50 m</text>
+              <line x1="280" y1="50" x2="280" y2="20" stroke="#0F172A" stroke-dasharray="3 2" />
+              <text x="285" y="38" font-size="11" fill="#0F172A">x</text>
+              <line x1="20" y1="90" x2="280" y2="90" stroke="#0F172A" />
+              <line x1="20" y1="86" x2="20" y2="94" stroke="#0F172A" />
+              <line x1="280" y1="86" x2="280" y2="94" stroke="#0F172A" />
+              <text x="150" y="99" text-anchor="middle" font-size="11">y</text>
+              <circle cx="290" cy="50" r="4" fill="#FAC415" stroke="#14532D" />
+            </svg>
+          </div>
+          <p><span class="pp">(a)(i)</span> Find $x$ (radius of semicircle) and $y$ (rectangle length).</p>
+          <p><span class="pp">(a)(ii)</span> Hence find the <strong>total area</strong> to the nearest m².</p>
+          <p><span class="pp">(d)</span> A cylindrical tank has <strong>radius 90 cm</strong>, <strong>length 4
+              m</strong>. Find its volume in m³ to 2 d.p.</p>
+          <p><span class="pp">(e)</span> A different cylindrical tank has volume $\dfrac{81\pi}{125}$ m³, length =
+            <strong>3 × radius</strong>. Find the radius in metres.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)(i)</strong> Width = 50 m, so radius $x = 25$ m. Length $y = 300 - 25 = 275$ m.</p>
+          <p><strong>(a)(ii)</strong> Area = rectangle + half-circle = $275 \times 50 + \tfrac{1}{2}\pi(25)^2 = 13{,}750
+            + 312.5\pi \approx 13{,}750 + 981.7 = 14{,}731.7$.<br><span class="final">Area ≈ 14,732 m²</span></p>
+          <p><strong>(d)</strong> 90 cm = 0.9 m. $V = \pi(0.9)^2(4) = 3.24\pi \approx 10.179$. <span class="final">V ≈
+              10.18 m³</span></p>
+          <p><strong>(e)</strong> Length = $3r$. $V = \pi r^2 (3r) = 3\pi r^3 = \dfrac{81\pi}{125}$ → $r^3 =
+            \dfrac{27}{125}$ → $r = \dfrac{3}{5}$. <span class="final">r = 0.6 m</span></p>
+        </div>
+      </div>
+
+      <!-- Q1.7 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">Exam Style</span><span class="qtime">8 min</span>
+          <span class="qtitle">Cone — volume, slant height &amp; surface area</span>
+        </div>
+        <div class="qbody">
+          <p>A cone-shaped sports pylon has base <strong>radius 6 cm</strong> and <strong>perpendicular height 8
+              cm</strong>.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 200 160" width="180">
+              <!-- base ellipse -->
+              <ellipse cx="100" cy="130" rx="60" ry="12" fill="#A7D8B6" stroke="#14532D" stroke-width="2" />
+              <!-- cone sides -->
+              <line x1="40" y1="130" x2="100" y2="30" stroke="#14532D" stroke-width="2" />
+              <line x1="160" y1="130" x2="100" y2="30" stroke="#14532D" stroke-width="2" />
+              <!-- height dashed -->
+              <line x1="100" y1="30" x2="100" y2="130" stroke="#0F172A" stroke-width="1" stroke-dasharray="4 3" />
+              <!-- right angle marker -->
+              <rect x="100" y="120" width="8" height="8" fill="none" stroke="#0F172A" stroke-width="1" />
+              <!-- labels -->
+              <text x="108" y="85" font-size="12" fill="#0F172A">h=8</text>
+              <text x="100" y="145" text-anchor="middle" font-size="12" fill="#0F172A">r=6</text>
+              <!-- slant label -->
+              <text x="62" y="80" font-size="11" fill="#14532D" font-style="italic">ℓ</text>
+            </svg>
+          </div>
+          <p><span class="pp">(a)</span> Find its volume, in terms of $\pi$ and correct to 1 d.p.</p>
+          <p><span class="pp">(b)</span> Find the slant height $\ell$.</p>
+          <p><span class="pp">(c)</span> Find the total surface area of the cone, to 1 d.p.</p>
+          <p><em>HL Trap: slant height $\ell \neq h$. Use $\ell^2 = r^2 + h^2$ first.</em></p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> $V = \tfrac{1}{3}\pi r^2 h = \tfrac{1}{3}\pi(6)^2(8) = \tfrac{1}{3}\pi(288) = 96\pi
+            \approx$<span class="final">301.6 cm³</span></p>
+          <p><strong>(b)</strong> $\ell^2 = r^2 + h^2 = 36 + 64 = 100$ → <span class="final">ℓ = 10 cm</span></p>
+          <p><strong>(c)</strong> Total SA = base circle + curved surface = $\pi r^2 + \pi r \ell = \pi(36) + \pi(6)(10)
+            = 36\pi + 60\pi = 96\pi \approx$<span class="final">301.6 cm²</span></p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================ GEOMETRY ============================ -->
+    <section class="topic" id="geometry">
+      <h2>2 &middot; Geometry &amp; Constructions</h2>
+      <p class="intro">Co-ordinate geometry, synthetic theorems, circle theorems, constructions.</p>
+
+      <!-- Q2.1 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2022 · Q3</span><span class="qtime">10 min</span>
+          <span class="qtitle">Line PQ — perpendicular and y-intercept</span>
+        </div>
+        <div class="qbody">
+          <p>$Q = (6, 2)$ and $P$ is shown on a co-ordinate grid. The line $PQ$ has equation $x + 7y = 20$.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 360 200" width="340">
+              <defs>
+                <pattern id="gd1" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M20 0 L0 0 0 20" fill="none" stroke="#D4D4C8" stroke-width="0.5" />
+                </pattern>
+              </defs>
+              <rect x="20" y="20" width="320" height="160" fill="url(#gd1)" />
+              <line x1="20" y1="140" x2="340" y2="140" stroke="#0F172A" stroke-width="1.5" />
+              <line x1="100" y1="20" x2="100" y2="180" stroke="#0F172A" stroke-width="1.5" />
+              <text x="345" y="144" font-size="11">x</text>
+              <text x="92" y="18" font-size="11">y</text>
+              <!-- axis ticks -->
+              <g font-size="9" fill="#475569">
+                <text x="60" y="155">-2</text><text x="80" y="155">-1</text><text x="118" y="155">1</text>
+                <text x="138" y="155">2</text><text x="158" y="155">3</text><text x="178" y="155">4</text>
+                <text x="198" y="155">5</text><text x="218" y="155">6</text><text x="238" y="155">7</text>
+                <text x="80" y="124">1</text><text x="80" y="104">2</text><text x="80" y="84">3</text>
+              </g>
+              <!-- line through P(-1,3) and Q(6,2) -->
+              <line x1="40" y1="120" x2="280" y2="100" stroke="#FAC415" stroke-width="2.5" />
+              <!-- P at (-1,3) -->
+              <circle cx="80" cy="80" r="4" fill="#14532D" />
+              <text x="68" y="76" font-size="12" font-weight="600" fill="#14532D">P</text>
+              <!-- Q at (6,2) -->
+              <circle cx="220" cy="100" r="4" fill="#14532D" />
+              <text x="228" y="98" font-size="12" font-weight="600" fill="#14532D">Q (6, 2)</text>
+            </svg>
+          </div>
+          <p><span class="pp">(a)</span> Write down the coordinates of $P$.</p>
+          <p><span class="pp">(b)</span> Using the equation $x + 7y = 20$, find where $PQ$ crosses the
+            <strong>y-axis</strong>.</p>
+          <p><span class="pp">(c)</span> A new road through $Q(6, 2)$ is <strong>perpendicular</strong> to $PQ$. Find
+            its equation in the form $ax + by + c = 0$, $a, b, c \in \mathbb{R}$.</p>
+          <p><span class="pp">(d)</span> $|PQ|$ on the diagram is 7.1 cm. <strong>5 mm represents 100 m</strong>. Find
+            the real distance in km.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> Read from the diagram: <span class="final">P = (-1, 3)</span> (check: $-1 + 7(3) = 20$
+            ✓)</p>
+          <p><strong>(b)</strong> Sub $x=0$: $7y = 20$ → $y = \tfrac{20}{7}$. <span class="final">(0, 20/7)</span></p>
+          <p><strong>(c)</strong> From $x + 7y = 20$: rearrange to $y = -\tfrac{1}{7}x + \tfrac{20}{7}$ → slope $=
+            -\tfrac{1}{7}$. Perpendicular slope $= 7$.<br>
+            Through $(6, 2)$: $y - 2 = 7(x - 6)$ → $y = 7x - 40$. <span class="final">7x − y − 40 = 0</span></p>
+          <p><strong>(d)</strong> 7.1 cm = 71 mm. Scale: 5 mm ↔ 100 m, so 1 mm ↔ 20 m. Real distance = $71 \times 20 =
+            1420$ m. <span class="final">1.42 km</span></p>
+        </div>
+      </div>
+
+      <!-- Q2.2 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2022 · Q11</span><span class="qtime">5 min</span>
+          <span class="qtitle">Another point on a line of given slope</span>
+        </div>
+        <div class="qbody">
+          <p>Line $h$ has slope $\mathbf{4}$ and passes through $(20, 12)$. Find the coordinates of <strong>another
+              point</strong> on $h$. Show working.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>Slope 4 means: increase $x$ by 1, increase $y$ by 4. Starting from $(20, 12)$:
+            move $+1$ in $x$, $+4$ in $y$ → $(21, 16)$.</p>
+          <p>Alternatively: equation $y - 12 = 4(x - 20)$ → $y = 4x - 68$. Pick any $x$, e.g. $x = 22$ → $y = 20$. <span
+              class="final">(21, 16) or (22, 20) etc.</span></p>
+        </div>
+      </div>
+
+      <!-- Q2.3 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2022 · Q12</span><span class="qtime">5 min</span>
+          <span class="qtitle">Triangle in a circle (diameter, Pythagoras, trig)</span>
+        </div>
+        <div class="qbody">
+          <p>Circle $k$ has <strong>area $25\pi$ cm²</strong>. $A, B, C$ lie on $k$, with $[AB]$ a
+            <strong>diameter</strong> and $|AC| = 8$ cm. Find the <strong>smallest angle</strong> in triangle $ABC$.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 240 200" width="240">
+              <circle cx="120" cy="100" r="80" fill="none" stroke="#14532D" stroke-width="2" />
+              <circle cx="120" cy="100" r="3" fill="#14532D" />
+              <!-- A bottom-left, B top-right (diameter), C top -->
+              <line x1="56" y1="148" x2="184" y2="52" stroke="#14532D" stroke-width="1.5" />
+              <circle cx="56" cy="148" r="4" fill="#14532D" />
+              <text x="40" y="160" font-size="12" font-weight="600">A</text>
+              <circle cx="184" cy="52" r="4" fill="#14532D" />
+              <text x="190" y="50" font-size="12" font-weight="600">B</text>
+              <!-- C such that AC=8. Place C above. -->
+              <circle cx="135" cy="30" r="4" fill="#14532D" />
+              <text x="130" y="22" font-size="12" font-weight="600">C</text>
+              <line x1="56" y1="148" x2="135" y2="30" stroke="#14532D" stroke-width="1.5" />
+              <line x1="135" y1="30" x2="184" y2="52" stroke="#14532D" stroke-width="1.5" />
+              <text x="80" y="80" font-size="11" fill="#0F172A">8 cm</text>
+              <text x="200" y="170" font-size="12" font-style="italic">k</text>
+            </svg>
+          </div>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>Area = $\pi r^2 = 25\pi$ → $r = 5$ → diameter $|AB| = 10$ cm.</p>
+          <p>By the theorem <em>"angle in a semicircle = 90°"</em>, $\angle ACB = 90°$. So triangle $ABC$ is
+            right-angled at $C$ with hypotenuse $|AB| = 10$, leg $|AC| = 8$.</p>
+          <p>Pythagoras: $|BC|^2 = 10^2 - 8^2 = 36$ → $|BC| = 6$ cm.</p>
+          <p>Smallest angle is opposite the smallest side. Smallest side is $|BC| = 6$, opposite vertex $A$.<br>
+            $\sin A = \dfrac{6}{10} = 0.6$ → <span class="final">A ≈ 36.87°</span></p>
+        </div>
+      </div>
+
+      <!-- Q2.4 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2023 · Q7</span><span class="qtime">10 min</span>
+          <span class="qtitle">Proving ABCD is a square; converse</span>
+        </div>
+        <div class="qbody">
+          <p>$A, B, C, D$ are four points. $A$ and $B$ shown on the grid (with $A=(1,1)$, $B=(6,-1)$); $C = (8, 4)$, $D
+            = (3, 6)$.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 360 220" width="340">
+              <defs>
+                <pattern id="gd2" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M20 0 L0 0 0 20" fill="none" stroke="#D4D4C8" stroke-width="0.5" />
+                </pattern>
+              </defs>
+              <rect x="20" y="20" width="320" height="180" fill="url(#gd2)" />
+              <line x1="20" y1="140" x2="340" y2="140" stroke="#0F172A" stroke-width="1.5" />
+              <line x1="40" y1="20" x2="40" y2="200" stroke="#0F172A" stroke-width="1.5" />
+              <g font-size="9" fill="#475569"><text x="60" y="155">1</text><text x="80" y="155">2</text><text x="100"
+                  y="155">3</text><text x="120" y="155">4</text><text x="140" y="155">5</text><text x="160"
+                  y="155">6</text><text x="180" y="155">7</text><text x="200" y="155">8</text>
+                <text x="22" y="125">1</text><text x="22" y="105">2</text><text x="22" y="85">3</text><text x="22"
+                  y="65">4</text><text x="22" y="45">5</text><text x="22" y="25">6</text>
+              </g>
+              <!-- A(1,1), B(6,-1), C(8,4), D(3,6) -->
+              <polygon points="60,120 160,160 200,60 100,20" fill="none" stroke="#14532D" stroke-width="2" />
+              <circle cx="60" cy="120" r="4" fill="#14532D" /><text x="50" y="115" font-size="12"
+                font-weight="600">A</text>
+              <circle cx="160" cy="160" r="4" fill="#14532D" /><text x="165" y="172" font-size="12"
+                font-weight="600">B</text>
+              <circle cx="200" cy="60" r="4" fill="#14532D" /><text x="208" y="58" font-size="12"
+                font-weight="600">C</text>
+              <circle cx="100" cy="20" r="4" fill="#14532D" /><text x="92" y="14" font-size="12"
+                font-weight="600">D</text>
+            </svg>
+          </div>
+          <p><span class="pp">(a)(i)</span> Plot $C(8, 4)$ and $D(3, 6)$. <span class="pp">(ii)</span> Write coords of
+            $A$ and $B$.</p>
+          <p><span class="pp">(b)</span> Show that $ABCD$ is a <strong>square</strong> by:</p>
+          <ul>
+            <li>(i) showing $|AB| = |BC|$;</li>
+            <li>(ii) showing $AB \perp BC$ (without measuring).</li>
+          </ul>
+          <p><span class="pp">(c)</span> Ciarán says "<em>Every parallelogram is a square.</em>"</p>
+          <ul>
+            <li>(i) True or false? Justify.</li>
+            <li>(ii) Write the <strong>converse</strong>.</li>
+          </ul>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)(ii)</strong> <span class="final">A = (1, 1), B = (6, −1)</span></p>
+          <p><strong>(b)(i)</strong> $|AB| = \sqrt{(6-1)^2 + (-1-1)^2} = \sqrt{25 + 4} = \sqrt{29}$.<br>
+            $|BC| = \sqrt{(8-6)^2 + (4-(-1))^2} = \sqrt{4 + 25} = \sqrt{29}$. So $|AB| = |BC|$. ✓</p>
+          <p><strong>(b)(ii)</strong> Slope $AB = \dfrac{-1-1}{6-1} = -\dfrac{2}{5}$. Slope $BC = \dfrac{4-(-1)}{8-6} =
+            \dfrac{5}{2}$.<br>
+            Product = $-\dfrac{2}{5} \cdot \dfrac{5}{2} = -1$. Slopes multiply to $-1$, so $AB \perp BC$. ✓</p>
+          <p><strong>(c)(i)</strong> <span class="final">False</span>. A parallelogram only requires opposite sides
+            parallel — a rectangle (non-square) is a parallelogram that isn't a square.</p>
+          <p><strong>(c)(ii)</strong> Converse: <em>"Every square is a parallelogram."</em> (This statement is actually
+            true.)</p>
+        </div>
+      </div>
+
+      <!-- Q2.5 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2023 · Q12</span><span class="qtime">10 min</span>
+          <span class="qtitle">Reuleaux triangle — symmetry construction &amp; arc length</span>
+        </div>
+        <div class="qbody">
+          <p>A curved shape $ABC$ has three circular arcs (centres $C$, $A$, $B$ respectively); the dotted triangle
+            $ABC$ is <strong>equilateral</strong>.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 240 240" width="220">
+              <!-- Equilateral triangle vertices: A top, B bottom-left, C bottom-right -->
+              <!-- Side = 140. Place: A(120, 40), B(50, 161), C(190, 161) -->
+              <path d="M 50 161 A 140 140 0 0 1 190 161" fill="none" stroke="#14532D" stroke-width="2" />
+              <path d="M 120 40 A 140 140 0 0 1 50 161" fill="none" stroke="#14532D" stroke-width="2" />
+              <path d="M 190 161 A 140 140 0 0 1 120 40" fill="none" stroke="#14532D" stroke-width="2" />
+              <path d="M 120 40 L 50 161 L 190 161 Z" fill="none" stroke="#64748B" stroke-width="1"
+                stroke-dasharray="4 3" />
+              <circle cx="120" cy="40" r="3" fill="#14532D" /><text x="115" y="32" font-size="12"
+                font-weight="600">A</text>
+              <circle cx="50" cy="161" r="3" fill="#14532D" /><text x="35" y="170" font-size="12"
+                font-weight="600">B</text>
+              <circle cx="190" cy="161" r="3" fill="#14532D" /><text x="198" y="170" font-size="12"
+                font-weight="600">C</text>
+            </svg>
+          </div>
+          <p><span class="pp">(a)</span> Using only compass and straight edge, construct <strong>one axis of
+              symmetry</strong>. Show all construction lines.</p>
+          <p><span class="pp">(b)(i)</span> Write down $\angle ACB$. &nbsp;<span class="pp">(b)(ii)</span> $|BC| = 40$
+            cm. Find the <strong>length of the circular arc</strong> from $B$ to $C$, to 2 d.p.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> Pick any vertex (say $A$). Construct the <strong>perpendicular bisector</strong> of
+            the opposite side $[BC]$ (centre arcs from $B$ and $C$ with equal radius, draw line through their
+            intersection points). This line is an axis of symmetry — it passes through $A$ and the midpoint of $BC$,
+            splitting the shape into two mirror halves.</p>
+          <p><strong>(b)(i)</strong> Triangle $ABC$ is equilateral → <span class="final">∠ACB = 60°</span></p>
+          <p><strong>(b)(ii)</strong> Arc from $B$ to $C$ has centre $A$, radius $|AB| = 40$ cm, subtending the 60°
+            angle at $A$.<br>
+            Arc length $= \dfrac{60}{360} \cdot 2\pi(40) = \dfrac{80\pi}{6} = \dfrac{40\pi}{3}$.<br>
+            <span class="final">Arc length ≈ 41.89 cm</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q2.6 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2024 · Q9</span><span class="qtime">10 min</span>
+          <span class="qtitle">Central symmetry &amp; testing for parallelogram</span>
+        </div>
+        <div class="qbody">
+          <p>Diagram shows segment $[AC]$, with $B(4, 1)$ and $P(3, 3)$.</p>
+          <p><span class="pp">(a)</span> Write coordinates of $A$ and $C$. <em>(from diagram: A = (−1, 1), C = (5,
+              4))</em></p>
+          <p><span class="pp">(b)(i)</span> $D$ is the image of $B$ under <strong>central symmetry in $P$</strong>. Plot
+            $D$ and form quadrilateral $ABCD$.</p>
+          <p><span class="pp">(b)(ii)</span> Find $|AB|$ and $|CD|$ and use them to explain why Kate is correct that
+            $ABCD$ is <strong>not</strong> a parallelogram.</p>
+          <p class="pdf-ref">See 2024 PDF page 14 for the original grid.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> From the diagram: <span class="final">A = (−1, 1), C = (5, 4)</span></p>
+          <p><strong>(b)(i)</strong> $P$ is midpoint of $[BD]$, so $D = 2P - B = (2 \cdot 3 - 4,\ 2 \cdot 3 - 1) = (2,
+            5)$.</p>
+          <p><strong>(b)(ii)</strong> $|AB| = \sqrt{(4-(-1))^2 + (1-1)^2} = \sqrt{25} = 5$.<br>
+            $|CD| = \sqrt{(5-2)^2 + (4-5)^2} = \sqrt{9 + 1} = \sqrt{10}$.<br>
+            Since $|AB| \ne |CD|$, opposite sides $AB$ and $CD$ are <strong>not equal</strong>, so $ABCD$ cannot be a
+            parallelogram. ✓</p>
+        </div>
+      </div>
+
+      <!-- Q2.7 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2024 · Q10</span><span class="qtime">5 min</span>
+          <span class="qtitle">Perpendicular line equation</span>
+        </div>
+        <div class="qbody">
+          <p>Line $k$: $y = 2x + 5$. It meets the $y$-axis at $(0, 5)$ and the $x$-axis at $P$.</p>
+          <p><span class="pp">(a)</span> Find the coordinates of $P$.</p>
+          <p><span class="pp">(b)</span> Line $n$ is <strong>perpendicular to $k$</strong>, through $(0, 10)$. Find its
+            equation in form $ax + by + c = 0$, $a, b, c \in \mathbb{Z}$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> Set $y = 0$: $0 = 2x + 5$ → $x = -\tfrac{5}{2}$. <span class="final">P = (−5/2,
+              0)</span></p>
+          <p><strong>(b)</strong> Slope of $k$ = 2 → slope of $n$ = $-\tfrac{1}{2}$. Through $(0, 10)$: $y =
+            -\tfrac{1}{2}x + 10$. Multiply by 2: $2y = -x + 20$. <span class="final">x + 2y − 20 = 0</span></p>
+        </div>
+      </div>
+
+      <!-- Q2.8 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2025 · Q5</span><span class="qtime">5 min</span>
+          <span class="qtitle">Parallelogram, midpoint, plotting</span>
+        </div>
+        <div class="qbody">
+          <p>Points shown: $A$ near $(3, -2)$, $C$ near $(0, 1)$.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 300 280" width="260">
+              <defs>
+                <pattern id="gd3" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M20 0 L0 0 0 20" fill="none" stroke="#D4D4C8" stroke-width="0.5" />
+                </pattern>
+              </defs>
+              <rect x="20" y="20" width="260" height="240" fill="url(#gd3)" />
+              <line x1="20" y1="140" x2="280" y2="140" stroke="#0F172A" stroke-width="1.5" />
+              <line x1="150" y1="20" x2="150" y2="260" stroke="#0F172A" stroke-width="1.5" />
+              <g font-size="9" fill="#475569">
+                <text x="50" y="155">-5</text><text x="70" y="155">-4</text><text x="90" y="155">-3</text><text x="110"
+                  y="155">-2</text><text x="130" y="155">-1</text>
+                <text x="170" y="155">1</text><text x="190" y="155">2</text><text x="210" y="155">3</text><text x="230"
+                  y="155">4</text><text x="250" y="155">5</text>
+                <text x="155" y="125">1</text><text x="155" y="105">2</text><text x="155" y="85">3</text><text x="155"
+                  y="65">4</text>
+                <text x="155" y="165">-1</text><text x="155" y="185">-2</text><text x="155" y="205">-3</text>
+              </g>
+              <circle cx="210" cy="180" r="4" fill="#14532D" /><text x="216" y="184" font-size="12"
+                font-weight="600">A</text>
+              <circle cx="150" cy="120" r="4" fill="#14532D" /><text x="156" y="116" font-size="12"
+                font-weight="600">C</text>
+            </svg>
+          </div>
+          <p><span class="pp">(a)</span> Write coords of $A$ and $C$. <span class="pp">(b)</span> Plot $B(4, 3)$.</p>
+          <p><span class="pp">(c)</span> $ABCD$ is a <strong>parallelogram</strong>. Plot and label $D$.</p>
+          <p><span class="pp">(d)</span> $C$ is the <strong>midpoint</strong> of $[AE]$. Find $E$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> <span class="final">A = (3, −2), C = (0, 1)</span></p>
+          <p><strong>(c)</strong> In parallelogram $ABCD$ (vertices in order), opposite sides $AB$ and $DC$ are equal
+            and parallel.
+            Vector $A \to B = (4-3, 3-(-2)) = (1, 5)$. So $D \to C$ must be $(1, 5)$, i.e. $D = C - (1, 5) = (-1, -4)$.
+            <span class="final">D = (−1, −4)</span>
+          </p>
+          <p><strong>(d)</strong> $C = \dfrac{A + E}{2}$ → $E = 2C - A = (2(0) - 3,\ 2(1) - (-2)) = (-3, 4)$.<br>
+            <span class="final">E = (−3, 4)</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q2.9 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2025 · Q6</span><span class="qtime">10 min</span>
+          <span class="qtitle">Construction C7; angles in parallel lines; similar triangles</span>
+        </div>
+        <div class="qbody">
+          <p><span class="pp">(a)</span> Divide segment $[PQ]$ into <strong>three equal lengths</strong>, without
+            measuring. Show all construction lines. <em>(Construction 7 — HL only.)</em></p>
+          <p>In triangle $ABC$, $D, E$ lie on $[AB]$ and $F, G$ lie on $[AC]$, with $DF \parallel EG \parallel BC$.
+            $\angle DAF = 28°$, $\angle ABC = 72°$.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 360 200" width="340">
+              <!-- Triangle ABC: A(30,170), B(320,170), C(290,30) -->
+              <polygon points="30,170 320,170 290,30" fill="none" stroke="#14532D" stroke-width="2" />
+              <!-- D, E on AB; F, G on AC -->
+              <line x1="130" y1="170" x2="170" y2="120" stroke="#14532D" stroke-width="1.5" />
+              <line x1="220" y1="170" x2="240" y2="75" stroke="#14532D" stroke-width="1.5" />
+              <text x="20" y="178" font-size="12" font-weight="600">A</text>
+              <text x="324" y="178" font-size="12" font-weight="600">B</text>
+              <text x="296" y="28" font-size="12" font-weight="600">C</text>
+              <text x="128" y="184" font-size="11" font-weight="600">D</text>
+              <text x="218" y="184" font-size="11" font-weight="600">E</text>
+              <text x="160" y="113" font-size="11" font-weight="600">F</text>
+              <text x="240" y="70" font-size="11" font-weight="600">G</text>
+              <text x="55" y="162" font-size="10" fill="#7C5E11">28°</text>
+              <text x="288" y="162" font-size="10" fill="#7C5E11">72°</text>
+              <text x="142" y="158" font-size="10" fill="#0F172A" font-style="italic">x</text>
+              <text x="160" y="135" font-size="10" fill="#0F172A" font-style="italic">y</text>
+              <text x="220" y="155" font-size="10" fill="#0F172A" font-style="italic">z</text>
+            </svg>
+          </div>
+          <p><span class="pp">(b)(i)</span> Find $x$ (at $D$), $y$ (at $F$), $z$ (at $E$).</p>
+          <p><span class="pp">(b)(ii)</span> Explain why triangles $ABC$ and $ADF$ are <strong>similar but not
+              congruent</strong>.</p>
+          <p><span class="pp">(c)</span> Given $|AD| = |DE| = |EB| = 10$ and $|BC| = 14.3$. Using similar triangles,
+            find $|GE|$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> Draw any ray from $P$ at a small angle to $PQ$. With compass set to any fixed radius,
+            step off <strong>3 equal arcs</strong> along the ray — call the points $P_1, P_2, P_3$. Join $P_3$ to $Q$.
+            Through $P_1$ and $P_2$, draw lines <strong>parallel to $P_3 Q$</strong> (use the parallel-line
+            construction). These cut $[PQ]$ at the two trisection points.</p>
+          <p><strong>(b)(i)</strong> Triangle $ABC$ has angles: $\angle A = 28°$, $\angle B = 72°$ → $\angle C = 180° -
+            28° - 72° = 80°$.<br>
+            Since $DF \parallel BC$, triangle $ADF$ has the same angles: $28°$ at $A$, $72°$ at $D$ (corresponding with
+            $\angle ABC$), $80°$ at $F$ (corresponding with $\angle ACB$).<br>
+            So the interior angle of triangle $ADF$ at $D$ is $\angle ADF = 72°$. $x$ is the supplementary angle on the
+            line $AB$ → <span class="final">x = 180° − 72° = 108°</span>.<br>
+            <span class="final">y = 80°</span> (interior angle of triangle $ADF$ at $F$).<br>
+            <span class="final">z = 108°</span> (same reasoning at $E$ with $EG \parallel BC$).
+          </p>
+          <p><strong>(b)(ii)</strong> <strong>Similar</strong> because all three pairs of corresponding angles are equal
+            ($28°, 72°, 80°$). <strong>Not congruent</strong> because the side lengths differ — $|AD| < |AB|$, so
+              triangle $ADF$ is smaller.</p>
+              <p><strong>(c)</strong> Triangle $AEG$ ~ triangle $ABC$ (both have $DF, EG, BC$ parallel, common angle at
+                $A$).<br>
+                Ratio $\dfrac{|AE|}{|AB|} = \dfrac{20}{30} = \dfrac{2}{3}$.<br>
+                So $\dfrac{|GE|}{|CB|} = \dfrac{2}{3}$ → $|GE| = \dfrac{2}{3}(14.3) = \dfrac{28.6}{3}$. <span
+                  class="final">|GE| ≈ 9.53</span></p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================ FACTORISING ============================ -->
+    <section class="topic" id="factorising">
+      <h2>3 &middot; Factorising</h2>
+      <p class="intro">Common factor · grouping · DOTS · quadratic trinomials.</p>
+
+      <!-- Q3.1 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2022 · Q9(b)</span><span class="qtime">2 min</span>
+          <span class="qtitle">Grouping with four terms</span>
+        </div>
+        <div class="qbody">
+          <p>Factorise fully: $\ 8ax - 14bx + 4ay - 7by$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>Group: $(8ax - 14bx) + (4ay - 7by) = 2x(4a - 7b) + y(4a - 7b)$.<br>
+            Common bracket: <span class="final">(4a − 7b)(2x + y)</span></p>
+        </div>
+      </div>
+
+      <!-- Q3.2 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2023 · Q9(b)</span><span class="qtime">2 min</span>
+          <span class="qtitle">Difference of two squares</span>
+        </div>
+        <div class="qbody">
+          <p>Factorise fully: $\ 9 - 25y^2$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>Recognise DOTS: $a^2 - b^2 = (a-b)(a+b)$, where $a = 3$, $b = 5y$.<br>
+            <span class="final">(3 − 5y)(3 + 5y)</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q3.3 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2024 · Q11(b)</span><span class="qtime">2 min</span>
+          <span class="qtitle">Grouping — watch the signs</span>
+        </div>
+        <div class="qbody">
+          <p>Factorise fully: $\ pm + 3p - m - 3$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>$(pm + 3p) + (-m - 3) = p(m + 3) - 1(m + 3)$. Common bracket:<br>
+            <span class="final">(m + 3)(p − 1)</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q3.4 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">Exam Style</span><span class="qtime">2 min</span>
+          <span class="qtitle">Trinomial — simple (a = 1)</span>
+        </div>
+        <div class="qbody">
+          <p>Factorise fully: $\ x^2 + 9x + 20$.</p>
+          <p><em>Strategy: find two numbers that multiply to 20 and add to 9.</em></p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>Need product 20, sum 9 → <strong>4 and 5</strong>.<br>
+            <span class="final">$(x + 4)(x + 5)$</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q3.5 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">Exam Style</span><span class="qtime">3 min</span>
+          <span class="qtitle">Trinomial — AC method (a ≠ 1)</span>
+        </div>
+        <div class="qbody">
+          <p>Factorise fully: $\ 2x^2 + 11x + 12$.</p>
+          <p><em>Strategy: multiply $a \times c = 2 \times 12 = 24$. Find two numbers with product 24 and sum 11.</em>
+          </p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>Product 24, sum 11 → <strong>8 and 3</strong>. Split middle term:<br>
+            $2x^2 + 8x + 3x + 12 = 2x(x + 4) + 3(x + 4)$.<br>
+            <span class="final">$(2x + 3)(x + 4)$</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q3.6 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">Exam Style</span><span class="qtime">3 min</span>
+          <span class="qtitle">Common factor then DOTS chain</span>
+        </div>
+        <div class="qbody">
+          <p>Factorise fully: $\ 12x^2 - 27$.</p>
+          <p><em>HL Trap: always take out the common factor first.</em></p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>Step 1 — common factor: $3(4x^2 - 9)$.<br>
+            Step 2 — DOTS: $4x^2 - 9 = (2x)^2 - 3^2 = (2x-3)(2x+3)$.<br>
+            <span class="final">$3(2x - 3)(2x + 3)$</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q3.7 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">Exam Style · HL</span><span class="qtime">4 min</span>
+          <span class="qtitle">Hard trinomial — negative constant</span>
+        </div>
+        <div class="qbody">
+          <p>Factorise fully: $\ 6x^2 + x - 15$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>$ac = 6 \times (-15) = -90$. Need product $-90$, sum $+1$ → <strong>10 and −9</strong>.<br>
+            $6x^2 + 10x - 9x - 15 = 2x(3x + 5) - 3(3x + 5)$.<br>
+            <span class="final">$(2x - 3)(3x + 5)$</span>
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================ ALGEBRA ============================ -->
+    <section class="topic" id="algebra">
+      <h2>4 &middot; Algebra</h2>
+      <p class="intro">Equations · inequalities · simultaneous · fractions · indices · polynomial division.</p>
+
+      <!-- Q4.1 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2022 · Q4(a)(b)</span><span class="qtime">6 min</span>
+          <span class="qtitle">Perimeters &amp; linear equations</span>
+        </div>
+        <div class="qbody">
+          <p>Three triangles. Triangle A has sides 2, 3.5, and a third side; <strong>perimeter 8 cm</strong>. Triangle B
+            has sides 3, $2x$, $2x+1$.</p>
+          <p><span class="pp">(a)</span> Find the third side of Triangle A.</p>
+          <p><span class="pp">(b)(i)</span> Write Triangle B's perimeter in terms of $x$. <span
+              class="pp">(b)(ii)</span> Perimeter = 24 cm → find $x$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> $8 - 2 - 3.5 = $ <span class="final">2.5 cm</span></p>
+          <p><strong>(b)(i)</strong> Perimeter = $3 + 2x + (2x+1) = $ <span class="final">4x + 4</span></p>
+          <p><strong>(b)(ii)</strong> $4x + 4 = 24$ → $4x = 20$ → <span class="final">x = 5</span></p>
+        </div>
+      </div>
+
+      <!-- Q4.2 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2022 · Q7</span><span class="qtime">5 min</span>
+          <span class="qtitle">Laws of indices</span>
+        </div>
+        <div class="qbody">
+          <p><span class="pp">(a)(i)</span> Find $p = q = r$ so that $a^p \cdot a^q \cdot a^r = a^{12}$ for all $a \in
+            \mathbb{R}$.</p>
+          <p><span class="pp">(a)(ii)</span> Find <strong>three different</strong> values of $p, q, r$ that also satisfy
+            this.</p>
+          <p><span class="pp">(b)</span> Find $m$ such that $\dfrac{b^m \cdot b^{-2}}{b} = b^{10}$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>Rule: $a^p \cdot a^q \cdot a^r = a^{p+q+r}$. So $p+q+r = 12$.</p>
+          <p><strong>(a)(i)</strong> $p = q = r = $ <span class="final">4</span> (since $3 \times 4 = 12$).</p>
+          <p><strong>(a)(ii)</strong> Any three different numbers summing to 12. E.g. <span class="final">p = 1, q = 2,
+              r = 9</span> (or 3, 4, 5; or 2, 3, 7; etc.)</p>
+          <p><strong>(b)</strong> $\dfrac{b^m \cdot b^{-2}}{b^1} = b^{m - 2 - 1} = b^{m-3}$. Set $m - 3 = 10$ → <span
+              class="final">m = 13</span></p>
+        </div>
+      </div>
+
+      <!-- Q4.3 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2022 · Q9(a)(c)</span><span class="qtime">6 min</span>
+          <span class="qtitle">Substitution &amp; algebraic fractions</span>
+        </div>
+        <div class="qbody">
+          <p><span class="pp">(a)</span> $k = 7$ and $m - k = 4$. Find $9k - 6m$.</p>
+          <p><span class="pp">(c)</span> Write as a single fraction in simplest form: $\ \dfrac{2}{2x+1} -
+            \dfrac{3}{3x+5}$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> $m - 7 = 4$ → $m = 11$. Then $9(7) - 6(11) = 63 - 66 = $ <span class="final">−3</span>
+          </p>
+          <p><strong>(c)</strong> Common denominator $(2x+1)(3x+5)$:
+            $\dfrac{2(3x+5) - 3(2x+1)}{(2x+1)(3x+5)} = \dfrac{6x + 10 - 6x - 3}{(2x+1)(3x+5)}$.
+            <span class="final">$= \dfrac{7}{(2x+1)(3x+5)}$</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q4.4 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2023 · Q9(a)(c)</span><span class="qtime">5 min</span>
+          <span class="qtitle">Multiply out; index manipulation</span>
+        </div>
+        <div class="qbody">
+          <p><span class="pp">(a)</span> Multiply out and simplify: $\ 4x(5x + 4) - 3(x - 2)$.</p>
+          <p><span class="pp">(c)</span> Write $\dfrac{5^7 \times 25^3}{\sqrt 5}$ in the form $5^p$, $p \in \mathbb{Q}$.
+          </p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> $20x^2 + 16x - 3x + 6 = $ <span class="final">20x² + 13x + 6</span></p>
+          <p><strong>(c)</strong> Express everything as powers of 5:
+            $25^3 = (5^2)^3 = 5^6$. $\sqrt 5 = 5^{1/2}$.<br>
+            $\dfrac{5^7 \cdot 5^6}{5^{1/2}} = 5^{7+6-\frac{1}{2}} = 5^{\frac{25}{2}}$.<br>
+            <span class="final">p = 25/2</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q4.5 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2024 · Q11(a)(c)(d)</span><span class="qtime">8 min</span>
+          <span class="qtitle">Substitution · inequalities · algebraic fractions</span>
+        </div>
+        <div class="qbody">
+          <p><span class="pp">(a)</span> Find the value of $12 - 3k^2$ when $k = -2$.</p>
+          <p><span class="pp">(c)</span> Graph on a number line:</p>
+          <ul>
+            <li>$x &lt; 2$, $x \in \mathbb{Z}$</li>
+            <li>$x \le 3$, $x \in \mathbb{N}$</li>
+            <li>$-2 &lt; x \le 4$, $x \in \mathbb{R}$</li>
+          </ul>
+          <p><span class="pp">(d)</span> Single fraction in simplest form: $\dfrac{5x-2}{3} + \dfrac{2}{5x+2}$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> $12 - 3(-2)^2 = 12 - 3(4) = 12 - 12 = $ <span class="final">0</span></p>
+          <p><strong>(c)</strong>
+          <ul>
+            <li>$x &lt; 2$, $\mathbb{Z}$: solid dots at $\ldots, -2, -1, 0, 1$. (Open circle at 2 — not included.)</li>
+            <li>$x \le 3$, $\mathbb{N}$: solid dots at 1, 2, 3 only. (Assuming ℕ starts at 1.)</li>
+            <li>$-2 &lt; x \le 4$, $\mathbb{R}$: open circle at $-2$, solid dot at 4, full line between them.</li>
+          </ul>
+          </p>
+          <p><strong>(d)</strong> Common denominator $3(5x+2)$:
+            $\dfrac{(5x-2)(5x+2) + 6}{3(5x+2)} = \dfrac{25x^2 - 4 + 6}{3(5x+2)} = \dfrac{25x^2 + 2}{3(5x+2)}$.
+            <span class="final">$\dfrac{25x^2 + 2}{3(5x+2)}$</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q4.6 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2025 · Q11</span><span class="qtime">5 min</span>
+          <span class="qbadge-adv">Part (b): Advanced — confirm</span>
+          <span class="qtitle">Simplify; polynomial long division</span>
+        </div>
+        <div class="qbody">
+          <p><span class="pp">(a)</span> Simplify: $\ 5x^2 - 7x + 3x^2 - 6x$.</p>
+          <p><span class="pp">(b)</span> Divide: $\ (x^3 + 11x^2 + 15x - 27) \div (x + 3)$.</p>
+          <div class="advnote"><strong>Scope check:</strong> polynomial long division (part b) is not in the 2nd-year HL
+            spec — typically 3rd year. Skip unless your teacher has covered it.</div>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> Combine like terms: <span class="final">8x² − 13x</span></p>
+          <p><strong>(b)</strong> Long division:
+            $x^3 \div x = x^2$ → multiply $(x+3)$ by $x^2$ → $x^3 + 3x^2$. Subtract: $8x^2 + 15x - 27$.<br>
+            $8x^2 \div x = 8x$ → multiply $(x+3)$ by $8x$ → $8x^2 + 24x$. Subtract: $-9x - 27$.<br>
+            $-9x \div x = -9$ → multiply $(x+3)$ by $-9$ → $-9x - 27$. Subtract: $0$.<br>
+            <span class="final">Quotient: x² + 8x − 9 (no remainder)</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q4.7 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2025 · Q12(b)</span><span class="qtime">5 min</span>
+          <span class="qtitle">Simultaneous equations</span>
+        </div>
+        <div class="qbody">
+          <p>Solve: $\begin{cases} 3x + 4y = 29 \\ 2x + y = 9 \end{cases}$</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>From eqn 2: $y = 9 - 2x$. Sub into eqn 1:<br>
+            $3x + 4(9 - 2x) = 29$ → $3x + 36 - 8x = 29$ → $-5x = -7$ → $x = \tfrac{7}{5} = 1.4$.<br>
+            Then $y = 9 - 2(1.4) = 6.2$.<br>
+            <span class="final">x = 1.4, y = 6.2</span>
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================ QUADRATICS ============================ -->
+    <section class="topic" id="quadratics">
+      <h2>5 &middot; Quadratic Equations</h2>
+      <p class="intro">Quadratic formula · factorising · completing the square · discriminant · word problems.</p>
+
+      <!-- Q5.1 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2022 · Q9(d)</span><span class="qtime">5 min</span>
+          <span class="qtitle">Solve with the quadratic formula</span>
+        </div>
+        <div class="qbody">
+          <p>Solve $\ 2x^2 - 7x - 3 = 0$, each answer to 2 d.p.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>$a=2$, $b=-7$, $c=-3$.<br>
+            $x = \dfrac{-(-7) \pm \sqrt{(-7)^2 - 4(2)(-3)}}{2(2)} = \dfrac{7 \pm \sqrt{49 + 24}}{4} = \dfrac{7 \pm
+            \sqrt{73}}{4}$.<br>
+            $\sqrt{73} \approx 8.544$.<br>
+            $x_1 \approx \dfrac{7 + 8.544}{4} \approx 3.886 \to 3.89$.<br>
+            $x_2 \approx \dfrac{7 - 8.544}{4} \approx -0.386 \to -0.39$.<br>
+            <span class="final">x ≈ 3.89 or x ≈ −0.39</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q5.2 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2023 · Q13</span><span class="qtime">10 min</span>
+          <span class="qtitle">Poster — forming and solving a quadratic</span>
+        </div>
+        <div class="qbody">
+          <p>Rectangular poster: top section is a square of side $x$ m (the image); bottom section is a rectangle of
+            height <strong>0.5 m</strong> (sponsor logos). Total area = <strong>50 m²</strong>.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 200 220" width="180">
+              <rect x="40" y="20" width="120" height="120" fill="#A7D8B6" stroke="#14532D" stroke-width="2" />
+              <rect x="40" y="140" width="120" height="40" fill="#FAC415" opacity=".4" stroke="#14532D"
+                stroke-width="2" />
+              <text x="100" y="85" text-anchor="middle" font-size="12" fill="#0F172A">Square Image</text>
+              <text x="100" y="100" text-anchor="middle" font-size="11" fill="#0F172A">(side x)</text>
+              <text x="100" y="163" text-anchor="middle" font-size="10" fill="#0F172A">Sponsor Logos</text>
+              <text x="100" y="174" text-anchor="middle" font-size="9" fill="#0F172A">(0.5 m tall)</text>
+              <line x1="40" y1="195" x2="160" y2="195" stroke="#0F172A" />
+              <line x1="40" y1="191" x2="40" y2="199" stroke="#0F172A" />
+              <line x1="160" y1="191" x2="160" y2="199" stroke="#0F172A" />
+              <text x="100" y="208" text-anchor="middle" font-size="11">x m</text>
+              <line x1="170" y1="140" x2="170" y2="180" stroke="#0F172A" />
+              <text x="175" y="163" font-size="10">0.5 m</text>
+            </svg>
+          </div>
+          <p><span class="pp">(a)</span> Write the <strong>total height</strong> in terms of $x$.</p>
+          <p><span class="pp">(b)</span> Show that $\ 2x^2 + x - 100 = 0$.</p>
+          <p><span class="pp">(c)</span> Solve $\ 2x^2 + x - 100 = 0$ to find $x$, in metres to the nearest cm.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> Total height = $x + 0.5$ m.</p>
+          <p><strong>(b)</strong> Area = width × height = $x(x + 0.5) = 50$. Expand: $x^2 + 0.5x = 50$. Multiply by 2:
+            $2x^2 + x = 100$ → $2x^2 + x - 100 = 0$. ✓</p>
+          <p><strong>(c)</strong> $a=2$, $b=1$, $c=-100$.<br>
+            $x = \dfrac{-1 \pm \sqrt{1 + 800}}{4} = \dfrac{-1 \pm \sqrt{801}}{4}$.<br>
+            $\sqrt{801} \approx 28.302$.<br>
+            $x \approx \dfrac{-1 + 28.302}{4} \approx 6.826$ (reject negative root — length must be positive).<br>
+            <span class="final">x ≈ 6.83 m</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q5.3 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2024 · Q12(c)</span><span class="qtime">7 min</span>
+          <span class="qtitle">Setting up and solving from a pattern</span>
+        </div>
+        <div class="qbody">
+          <p>In a sequence of patterns, pattern $n$ has $(n+2)^2$ <strong>total squares</strong> and $(n+3)$
+            <strong>shaded squares</strong>. In pattern $k$, the difference is <strong>271</strong>.</p>
+          <p><span class="pp">(i)</span> Show this gives $k^2 + 3k + 1 = 271$.</p>
+          <p><span class="pp">(ii)</span> Solve $k^2 + 3k + 1 = 271$ to find $k$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(i)</strong> Difference = (total) − (shaded) = $(n+2)^2 - (n+3) = n^2 + 4n + 4 - n - 3 = n^2 + 3n +
+            1$.<br>
+            At $n = k$ this equals 271: $k^2 + 3k + 1 = 271$. ✓</p>
+          <p><strong>(ii)</strong> $k^2 + 3k - 270 = 0$. Formula: $k = \dfrac{-3 \pm \sqrt{9 + 1080}}{2} = \dfrac{-3 \pm
+            \sqrt{1089}}{2} = \dfrac{-3 \pm 33}{2}$.<br>
+            $k = 15$ or $k = -18$. Pattern number must be positive whole. <span class="final">k = 15</span></p>
+        </div>
+      </div>
+
+      <!-- Q5.4 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2025 · Q13</span><span class="qtime">10 min</span>
+          <span class="qtitle">Photo frame — forming and solving a quadratic</span>
+        </div>
+        <div class="qbody">
+          <p>A photo frame: outer rectangle width $w$, length $l$; central hole <strong>12 by 18</strong>; border
+            thickness $x$ all around. Given $l = 18 + 2x$.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 280 200" width="260">
+              <rect x="20" y="20" width="240" height="160" fill="#E5C9A1" stroke="#14532D" stroke-width="2" />
+              <rect x="60" y="50" width="160" height="100" fill="#FAFAFA" stroke="#14532D" stroke-width="2" />
+              <text x="140" y="105" text-anchor="middle" font-size="11" font-style="italic" fill="#0F172A">12 × 18
+                (photo)</text>
+              <!-- border markers -->
+              <line x1="140" y1="35" x2="140" y2="50" stroke="#0F172A" stroke-dasharray="2 2" />
+              <text x="145" y="40" font-size="10" font-style="italic">x</text>
+              <line x1="140" y1="150" x2="140" y2="165" stroke="#0F172A" stroke-dasharray="2 2" />
+              <text x="145" y="158" font-size="10" font-style="italic">x</text>
+              <line x1="35" y1="100" x2="60" y2="100" stroke="#0F172A" stroke-dasharray="2 2" />
+              <text x="38" y="95" font-size="10" font-style="italic">x</text>
+              <line x1="220" y1="100" x2="245" y2="100" stroke="#0F172A" stroke-dasharray="2 2" />
+              <text x="226" y="95" font-size="10" font-style="italic">x</text>
+              <line x1="20" y1="195" x2="260" y2="195" stroke="#0F172A" />
+              <text x="140" y="205" text-anchor="middle" font-size="11" font-style="italic">l</text>
+              <line x1="270" y1="20" x2="270" y2="180" stroke="#0F172A" />
+              <text x="275" y="105" font-size="11" font-style="italic">w</text>
+            </svg>
+          </div>
+          <p><span class="pp">(a)</span> Write $w$ in terms of $x$. <span class="pp">(b)</span> Show $l \cdot w = 4x^2 +
+            60x + 216$.</p>
+          <p><span class="pp">(c)</span> $l \cdot w = 648$ cm². Find $x$ to 1 d.p.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> Border thickness $x$ adds on top and bottom: $w = 12 + 2x$.</p>
+          <p><strong>(b)</strong> $l \cdot w = (18 + 2x)(12 + 2x) = 216 + 36x + 24x + 4x^2 = 4x^2 + 60x + 216$. ✓</p>
+          <p><strong>(c)</strong> $4x^2 + 60x + 216 = 648$ → $4x^2 + 60x - 432 = 0$ → divide by 4: $x^2 + 15x - 108 =
+            0$.<br>
+            $x = \dfrac{-15 \pm \sqrt{225 + 432}}{2} = \dfrac{-15 \pm \sqrt{657}}{2}$.<br>
+            $\sqrt{657} \approx 25.632$. $x \approx \dfrac{-15 + 25.632}{2} \approx 5.316$ (reject negative).<br>
+            <span class="final">x ≈ 5.3 cm</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q5.5 -->
+      <div class="qcard advanced">
+        <div class="qhead">
+          <span class="qtag">Exam Style</span><span class="qtime">4 min</span>
+          <span class="qbadge-adv">Advanced — confirm</span>
+          <span class="qtitle">Discriminant — find $k$ for a repeated root</span>
+        </div>
+        <div class="qbody">
+          <div class="advnote"><strong>Scope check:</strong> the discriminant ($\Delta = b^2 - 4ac$) isn't in the
+            2nd-year HL spec — usually 3rd year. Skip unless your teacher has covered it.</div>
+          <p>The equation $x^2 + kx + 9 = 0$ has exactly one (repeated) root.</p>
+          <p><span class="pp">(a)</span> Write down the condition on the discriminant $\Delta = b^2 - 4ac$.</p>
+          <p><span class="pp">(b)</span> Find the value(s) of $k$.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> Repeated root ⇒ $\Delta = 0$.</p>
+          <p><strong>(b)</strong> $a = 1, b = k, c = 9$. So $k^2 - 4(1)(9) = 0$ → $k^2 = 36$ → <span class="final">k =
+              ±6</span></p>
+          <p>Check: $x^2 + 6x + 9 = (x+3)^2$ and $x^2 - 6x + 9 = (x-3)^2$ — both perfect squares ✓.</p>
+        </div>
+      </div>
+
+      <!-- Q5.6 -->
+      <div class="qcard advanced">
+        <div class="qhead">
+          <span class="qtag">Exam Style · HL</span><span class="qtime">6 min</span>
+          <span class="qbadge-adv">Advanced — confirm</span>
+          <span class="qtitle">Completing the square — surd answer</span>
+        </div>
+        <div class="qbody">
+          <div class="advnote"><strong>Scope check:</strong> completing the square isn't in the 2nd-year HL spec —
+            usually 3rd year. Skip unless your teacher has covered it.</div>
+          <p>Solve $x^2 - 6x + 4 = 0$ by completing the square. Leave your answer in surd form.</p>
+          <p><em>HL method: write as $(x - p)^2 = q$, then take the square root of both sides.</em></p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p>$x^2 - 6x = -4$<br>
+            Add $\left(\tfrac{6}{2}\right)^2 = 9$ to both sides:<br>
+            $x^2 - 6x + 9 = 5$<br>
+            $(x - 3)^2 = 5$<br>
+            $x - 3 = \pm\sqrt{5}$<br>
+            <span class="final">$x = 3 \pm \sqrt{5}$</span><br>
+            (≈ 5.24 or 0.76)
+          </p>
+        </div>
+      </div>
+
+      <!-- Q5.7 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">Exam Style · HL</span><span class="qtime">8 min</span>
+          <span class="qtitle">Word problem — rectangular dimensions from area</span>
+        </div>
+        <div class="qbody">
+          <p>A rectangular training grid has its <strong>length 3 m more than its width</strong>. Its <strong>area is 40
+              m²</strong>.</p>
+          <p><span class="pp">(a)</span> Let the width be $x$ m. Write the area as a quadratic equation in $x$.</p>
+          <p><span class="pp">(b)</span> Solve to find the dimensions of the grid.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> Length $= x + 3$. Area $= x(x+3) = 40$ → $x^2 + 3x - 40 = 0$.</p>
+          <p><strong>(b)</strong> Factorise: need product $-40$, sum $3$ → $8$ and $-5$.<br>
+            $(x + 8)(x - 5) = 0$ → $x = -8$ (reject — can't have negative width) or $x = 5$.<br>
+            <span class="final">Width = 5 m, Length = 8 m</span>
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================ TRIGONOMETRY ============================ -->
+    <section class="topic" id="trigonometry">
+      <h2>6 &middot; Trigonometry (incl. Pythagoras)</h2>
+      <p class="intro">Right-angled trig, two-triangle problems, similar triangles, Pythagoras, bearings.</p>
+
+      <!-- Q6.1 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2022 · Q8</span><span class="qtime">10 min</span>
+          <span class="qtitle">Two buildings — depression, elevation, Pythagoras</span>
+        </div>
+        <div class="qbody">
+          <p>Mary stands at the top of Building A, <strong>220 m</strong> above ground. Looking at Building B across a
+            horizontal distance of <strong>154 m</strong>: angle of depression to bottom of B is <strong>35°</strong>;
+            angle of elevation to top of B is <strong>20°</strong>. Find: (a) angle $C$ at the foot of B; (b) the slant
+            distance $y$ from Mary to the foot of B (Pythagoras); (c) the height $z$ of Building B.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 360 240" width="340">
+              <!-- ground -->
+              <line x1="20" y1="200" x2="340" y2="200" stroke="#0F172A" stroke-width="1.5" />
+              <!-- Building A on left -->
+              <rect x="40" y="40" width="36" height="160" fill="#A7D8B6" stroke="#14532D" stroke-width="1.5" />
+              <text x="58" y="220" text-anchor="middle" font-size="10">A</text>
+              <!-- Building B on right (taller) -->
+              <rect x="280" y="20" width="36" height="180" fill="#A7D8B6" stroke="#14532D" stroke-width="1.5" />
+              <text x="298" y="220" text-anchor="middle" font-size="10">B</text>
+              <!-- Mary at top of A -->
+              <circle cx="76" cy="40" r="3" fill="#0F172A" />
+              <!-- horizontal from Mary -->
+              <line x1="76" y1="40" x2="280" y2="40" stroke="#0F172A" stroke-dasharray="3 3" />
+              <!-- line of depression to foot of B -->
+              <line x1="76" y1="40" x2="280" y2="200" stroke="#14532D" stroke-width="1.5" />
+              <!-- line of elevation to top of B -->
+              <line x1="76" y1="40" x2="280" y2="20" stroke="#14532D" stroke-width="1.5" />
+              <text x="100" y="56" font-size="10" fill="#7C5E11">35°</text>
+              <text x="100" y="32" font-size="10" fill="#7C5E11">20°</text>
+              <text x="178" y="140" font-size="11" font-style="italic" fill="#0F172A">y</text>
+              <text x="320" y="105" font-size="11" font-style="italic" fill="#0F172A">z</text>
+              <text x="265" y="195" font-size="10" font-style="italic" fill="#0F172A">C</text>
+              <text x="20" y="118" font-size="10">220 m</text>
+              <line x1="170" y1="206" x2="170" y2="216" stroke="#0F172A" />
+              <line x1="170" y1="211" x2="280" y2="211" stroke="#0F172A" />
+              <line x1="76" y1="211" x2="170" y2="211" stroke="#0F172A" />
+              <text x="178" y="226" text-anchor="middle" font-size="10">154 m</text>
+            </svg>
+          </div>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> Mary's horizontal line and the ground are parallel. The transversal is Mary's line of
+            sight to the foot of B. Angle of depression at Mary = angle of elevation at foot of B (alternate interior
+            angles). <span class="final">C = 35°</span></p>
+          <p><strong>(b)</strong> Right-angled triangle: horizontal 154 m, vertical 220 m.<br>
+            $y = \sqrt{154^2 + 220^2} = \sqrt{23{,}716 + 48{,}400} = \sqrt{72{,}116} \approx 268.54$. <span
+              class="final">y ≈ 269 m</span></p>
+          <p><strong>(c)</strong> Height of top of B <strong>above Mary's level</strong>: from Mary's horizontal, $\tan
+            20° = \dfrac{\text{rise}}{154}$ → rise $= 154 \tan 20° \approx 56.05$ m.<br>
+            Total height $z = 220 + 56.05 \approx 276.05$. <span class="final">z ≈ 276 m</span></p>
+        </div>
+      </div>
+
+      <!-- Q6.2 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2023 · Q8(a)(b)(d)</span><span class="qtime">8 min</span>
+          <span class="qtitle">Unit conversion · plane angle · airport triangle</span>
+        </div>
+        <div class="qbody">
+          <p><span class="pp">(a)</span> Convert 7.5 km to metres.</p>
+          <p><span class="pp">(b)</span> A plane left point $T$ on the ground and is now <strong>7.5 km from $T$ along a
+              straight line</strong>, at height <strong>200 m</strong> above level ground. Find angle of elevation $E$
+            at $T$, to 1 d.p.</p>
+          <p><span class="pp">(d)</span> Triangle of airports $A, B, C$. $|AB| = 598$ km. The perpendicular from $B$ to
+            line $AC$ has length <strong>280 km</strong>, and the angle at $C$ is <strong>35°</strong>. Find $|AC|$ to
+            the nearest km.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> $7.5 \times 1000 = $ <span class="final">7500 m</span></p>
+          <p><strong>(b)</strong> The 7.5 km is the slant (hypotenuse from $T$ to the plane); 200 m is opposite the
+            angle $E$.<br>
+            $\sin E = \dfrac{200}{7500} \approx 0.02667$ → $E \approx 1.528°$. <span class="final">E ≈ 1.5°</span></p>
+          <p><strong>(d)</strong> Let $H$ be foot of perpendicular from $B$ to line $AC$. So $|BH| = 280$, $\angle BHC =
+            90°$, $\angle BCH = 35°$.<br>
+            In right triangle $BHC$: $\tan 35° = \dfrac{280}{|HC|}$ → $|HC| = \dfrac{280}{\tan 35°} \approx 399.93$
+            km.<br>
+            In right triangle $BHA$: $|AB| = 598$, $|BH| = 280$ → $|AH| = \sqrt{598^2 - 280^2} = \sqrt{357{,}604 -
+            78{,}400} = \sqrt{279{,}204} \approx 528.40$ km.<br>
+            $|AC| = |AH| + |HC| \approx 528.40 + 399.93 = 928.33$. <span class="final">|AC| ≈ 928 km</span></p>
+        </div>
+      </div>
+
+      <!-- Q6.3 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2023 · Q14</span><span class="qtime">5 min</span>
+          <span class="qtitle">Pythagoras + similar triangles</span>
+        </div>
+        <div class="qbody">
+          <p>Triangle $ABC$, right-angled at $A$. $D$ on $[AC]$ with $|DC| = 15$. $E$ on $[BC]$ with $DE \perp BC$ and
+            $|DE| = 9$. $|BE| = |EC| = x$.</p>
+          <p><span class="pp">(a)</span> Find $x$. <span class="pp">(b)</span> Using similar triangles, find $y = |AB|$.
+          </p>
+          <p class="pdf-ref">See 2023 PDF page 25 for the figure.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> In right triangle $DEC$ (right angle at $E$): hypotenuse $|DC| = 15$, leg $|DE| = 9$,
+            leg $|EC| = x$.<br>
+            $9^2 + x^2 = 15^2$ → $x^2 = 225 - 81 = 144$ → <span class="final">x = 12</span></p>
+          <p><strong>(b)</strong> So $|BC| = |BE| + |EC| = 12 + 12 = 24$.<br>
+            Triangles $ABC$ and $DEC$ are similar (both right-angled; share angle at $C$). Corresponding sides:<br>
+            $\dfrac{|AB|}{|DE|} = \dfrac{|BC|}{|DC|}$ → $\dfrac{y}{9} = \dfrac{24}{15}$ → $y = \dfrac{216}{15} =
+            14.4$.<br>
+            <span class="final">y = 14.4</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Q6.4 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2024 · Q13</span><span class="qtime">10 min</span>
+          <span class="qtitle">Roof — Pythagoras, trig, similar triangles &amp; area</span>
+        </div>
+        <div class="qbody">
+          <p>Roof base = 6.1 m.</p>
+          <p><span class="pp">(a)</span> Right-angled triangle, base 6.1 m, height $h = 2.84$ m. Find slant $x$ to 2
+            d.p.</p>
+          <p><span class="pp">(b)</span> Right-angled triangle, base 6.1 m, height 3.12 m, angle $\theta$ at base. Find
+            $\theta$ to nearest degree.</p>
+          <p><span class="pp">(c)</span> Different (isosceles) roof, base 14 m, height $y$. Vertical walls $[AB]$ and
+            $[DC]$ inside, height $x$ each, standing on base segment $[BC]$ with $|BC| = 8$ m.</p>
+          <ul>
+            <li>(i) Use similar triangles to show $x = \dfrac{3y}{7}$.</li>
+            <li>(ii) Shaded "attic" region $ABCDE$ has area 12 m². Find $y$.</li>
+          </ul>
+          <p class="pdf-ref">See 2024 PDF pages 20–21 for the figures.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> $x = \sqrt{6.1^2 + 2.84^2} = \sqrt{37.21 + 8.0656} = \sqrt{45.2756} \approx 6.7287$.
+            <span class="final">x ≈ 6.73 m</span></p>
+          <p><strong>(b)</strong> $\tan\theta = \dfrac{3.12}{6.1} \approx 0.5115$ → $\theta = \tan^{-1}(0.5115) \approx
+            27.10°$. <span class="final">θ ≈ 27°</span></p>
+          <p><strong>(c)(i)</strong> Each end of the base is 3 m from $B$ (and from $C$), since $(14-8)/2 = 3$. The
+            slope from the end of the base to the apex (horizontal 7, vertical $y$) is mirrored by the slope from the
+            end to the top of the wall (horizontal 3, vertical $x$).<br>
+            Similar triangles → $\dfrac{x}{3} = \dfrac{y}{7}$ → $x = \dfrac{3y}{7}$. ✓</p>
+          <p><strong>(c)(ii)</strong> Shaded region = rectangle $ABCD$ (8 × $x$) + triangle $ADE$ (base 8, height $y -
+            x$).<br>
+            Area = $8x + \tfrac{1}{2}(8)(y - x) = 8x + 4y - 4x = 4x + 4y$.<br>
+            Sub $x = \tfrac{3y}{7}$: $4 \cdot \tfrac{3y}{7} + 4y = \tfrac{12y}{7} + \tfrac{28y}{7} =
+            \tfrac{40y}{7}$.<br>
+            Set = 12: $\tfrac{40y}{7} = 12$ → $y = \tfrac{84}{40} = 2.1$. <span class="final">y = 2.1 m</span></p>
+        </div>
+      </div>
+
+      <!-- Q6.5 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">2025 · Q8</span><span class="qtime">5 min</span>
+          <span class="qtitle">Inverse cos · two-triangle height</span>
+        </div>
+        <div class="qbody">
+          <p><span class="pp">(a)</span> $\cos A = 0.27$. Find angle $A$ to the nearest degree.</p>
+          <p><span class="pp">(b)</span> Olga measures the height $h$ of a roof from a point $A$, 23 m from the foot
+            $B$. Two angles of elevation: <strong>22°</strong> to $C$ (the bottom of the roof) and <strong>29°</strong>
+            to $D$ (the top). $\angle ABC = \angle ABD = 90°$ (the building is vertical). Find $h = |DC|$ to 1 d.p.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 360 200" width="340">
+              <line x1="40" y1="160" x2="320" y2="160" stroke="#0F172A" stroke-width="1.5" />
+              <line x1="320" y1="160" x2="320" y2="50" stroke="#0F172A" stroke-width="1.5" />
+              <line x1="40" y1="160" x2="320" y2="100" stroke="#14532D" stroke-width="1.5" />
+              <line x1="40" y1="160" x2="320" y2="50" stroke="#14532D" stroke-width="1.5" />
+              <circle cx="40" cy="160" r="4" fill="#0F172A" />
+              <text x="25" y="170" font-size="12" font-weight="600">A</text>
+              <circle cx="320" cy="160" r="4" fill="#0F172A" />
+              <text x="325" y="170" font-size="12" font-weight="600">B</text>
+              <circle cx="320" cy="100" r="4" fill="#0F172A" />
+              <text x="325" y="100" font-size="12" font-weight="600">C</text>
+              <circle cx="320" cy="50" r="4" fill="#0F172A" />
+              <text x="325" y="48" font-size="12" font-weight="600">D</text>
+              <text x="70" y="155" font-size="10" fill="#7C5E11">22°</text>
+              <text x="70" y="140" font-size="10" fill="#7C5E11">29°</text>
+              <text x="170" y="175" font-size="11">23 m</text>
+              <text x="335" y="80" font-size="11" font-style="italic">h</text>
+              <line x1="330" y1="100" x2="330" y2="50" stroke="#0F172A" stroke-dasharray="2 2" />
+              <rect x="310" y="150" width="10" height="10" fill="none" stroke="#0F172A" />
+            </svg>
+          </div>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> $A = \cos^{-1}(0.27) \approx 74.34°$. <span class="final">A ≈ 74°</span></p>
+          <p><strong>(b)</strong> Two right-angled triangles share base $|AB| = 23$.<br>
+            In $\triangle ABC$: $\tan 22° = \dfrac{|BC|}{23}$ → $|BC| = 23 \tan 22° \approx 9.295$ m.<br>
+            In $\triangle ABD$: $\tan 29° = \dfrac{|BD|}{23}$ → $|BD| = 23 \tan 29° \approx 12.745$ m.<br>
+            $h = |DC| = |BD| - |BC| \approx 12.745 - 9.295 = 3.450$. <span class="final">h ≈ 3.5 m</span></p>
+        </div>
+      </div>
+
+      <!-- Q6.6 -->
+      <div class="qcard">
+        <div class="qhead">
+          <span class="qtag">Exam Style</span><span class="qtime">5 min</span>
+          <span class="qtitle">Angle of depression — lighthouse to boat</span>
+        </div>
+        <div class="qbody">
+          <p>From the top of a <strong>30 m lighthouse</strong>, the angle of depression of a boat is
+            <strong>22°</strong>.</p>
+          <div class="diagram">
+            <svg viewBox="0 0 280 160" width="260">
+              <!-- sea level -->
+              <line x1="20" y1="120" x2="260" y2="120" stroke="#0F172A" stroke-width="1.5" />
+              <!-- lighthouse -->
+              <rect x="40" y="30" width="18" height="90" fill="#A7D8B6" stroke="#14532D" stroke-width="2" />
+              <text x="49" y="25" text-anchor="middle" font-size="10">L</text>
+              <!-- horizontal from top -->
+              <line x1="58" y1="30" x2="220" y2="30" stroke="#64748B" stroke-width="1" stroke-dasharray="4 2" />
+              <!-- slant line to boat -->
+              <line x1="58" y1="30" x2="200" y2="120" stroke="#14532D" stroke-width="1.5" />
+              <!-- angle arc -->
+              <path d="M 90 30 A 32 32 0 0 1 75 56" fill="none" stroke="#FAC415" stroke-width="2" />
+              <text x="95" y="45" font-size="11" fill="#7C5E11">22°</text>
+              <!-- boat -->
+              <circle cx="200" cy="120" r="5" fill="#FAC415" />
+              <text x="208" y="118" font-size="11">Boat</text>
+              <!-- height -->
+              <line x1="28" y1="30" x2="28" y2="120" stroke="#0F172A" stroke-dasharray="3 2" />
+              <text x="10" y="80" font-size="10">30 m</text>
+              <!-- distance d -->
+              <line x1="58" y1="132" x2="200" y2="132" stroke="#0F172A" />
+              <text x="129" y="145" text-anchor="middle" font-size="11" font-style="italic">d</text>
+              <rect x="40" y="110" width="9" height="9" fill="none" stroke="#0F172A" stroke-width="1" />
+            </svg>
+          </div>
+          <p><span class="pp">(a)</span> Find $d$, the horizontal distance from the base of the lighthouse to the boat,
+            to 1 d.p.</p>
+          <p><span class="pp">(b)</span> Find the straight-line distance from the top of the lighthouse to the boat, to
+            1 d.p.</p>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>(a)</strong> The angle of depression from the top = 22°. In the right-angled triangle, opposite =
+            30 m (height), adjacent = $d$.<br>
+            $\tan 22° = \dfrac{30}{d}$ → $d = \dfrac{30}{\tan 22°} \approx \dfrac{30}{0.4040} \approx$<span
+              class="final">74.3 m</span></p>
+          <p><strong>(b)</strong> Hypotenuse $= \sqrt{30^2 + 74.3^2} = \sqrt{900 + 5520.49} = \sqrt{6420.49}
+            \approx$<span class="final">80.1 m</span></p>
+        </div>
+      </div>
+
+      <!-- Q6.7 -->
+      <div class="qcard advanced">
+        <div class="qhead">
+          <span class="qtag">Exam Style · HL</span><span class="qtime">8 min</span>
+          <span class="qbadge-adv">Advanced — confirm</span>
+          <span class="qtitle">Bearings — two-leg journey, find total distance</span>
+        </div>
+        <div class="qbody">
+          <div class="advnote"><strong>Scope check:</strong> 2nd-year HL trig covers ratios for 0°–90° only — bearings
+            are usually 3rd year. Skip unless your teacher has covered them.</div>
+          <p>A boat sails <strong>8 km on a bearing of 070°</strong>, then turns and sails <strong>5 km on a bearing of
+              160°</strong>. Find the straight-line distance from the starting point to the finishing point, to 1 d.p.
+          </p>
+          <p><em>Bearings are measured clockwise from North. A key fact: the angle between 070° and 160° is 90° — sketch
+              it to confirm the legs are perpendicular.</em></p>
+          <div class="diagram">
+            <svg viewBox="0 0 240 220" width="220">
+              <!-- North arrow at start -->
+              <line x1="40" y1="30" x2="40" y2="90" stroke="#64748B" stroke-width="1.5" />
+              <polygon points="40,22 36,34 44,34" fill="#64748B" />
+              <text x="44" y="30" font-size="10" fill="#64748B">N</text>
+              <!-- start point -->
+              <circle cx="40" cy="90" r="4" fill="#14532D" />
+              <text x="22" y="90" font-size="11" font-weight="bold">Start</text>
+              <!-- bearing 070 leg -->
+              <line x1="40" y1="90" x2="135" y2="68" stroke="#14532D" stroke-width="2" />
+              <text x="75" y="68" font-size="11" fill="#14532D">8 km</text>
+              <text x="50" y="82" font-size="10" fill="#7C5E11">070°</text>
+              <!-- midpoint (B) -->
+              <circle cx="135" cy="68" r="4" fill="#14532D" />
+              <text x="140" y="65" font-size="11" font-weight="bold">B</text>
+              <!-- North at B -->
+              <line x1="135" y1="40" x2="135" y2="68" stroke="#64748B" stroke-width="1" stroke-dasharray="3 2" />
+              <polygon points="135,32 131,44 139,44" fill="#64748B" />
+              <!-- bearing 160 leg -->
+              <line x1="135" y1="68" x2="162" y2="195" stroke="#14532D" stroke-width="2" />
+              <text x="168" y="140" font-size="11" fill="#14532D">5 km</text>
+              <text x="145" y="82" font-size="10" fill="#7C5E11">160°</text>
+              <!-- finish -->
+              <circle cx="162" cy="195" r="4" fill="#FAC415" stroke="#14532D" stroke-width="1.5" />
+              <text x="168" y="198" font-size="11" font-weight="bold">Finish</text>
+              <!-- direct distance -->
+              <line x1="40" y1="90" x2="162" y2="195" stroke="#FAC415" stroke-width="2" stroke-dasharray="5 3" />
+              <text x="80" y="160" font-size="11" fill="#7C5E11" font-style="italic">d = ?</text>
+              <!-- right angle at B -->
+              <rect x="128" y="68" width="10" height="10" fill="none" stroke="#0F172A" stroke-width="1" />
+            </svg>
+          </div>
+        </div>
+        <button class="reveal" onclick="this.nextElementSibling.classList.toggle('show')">Show worked solution</button>
+        <div class="answer">
+          <h4>Worked solution</h4>
+          <p><strong>Why the legs are perpendicular:</strong> the two bearings are 070° and 160°. The angle between them
+            at B = 160° − 070° = 90°. So the two legs form a right angle at B.</p>
+          <p><strong>Pythagoras:</strong> $d^2 = 8^2 + 5^2 = 64 + 25 = 89$ → $d = \sqrt{89} \approx$<span
+              class="final">9.4 km</span></p>
+        </div>
+      </div>
+
+    </section>
+
+    <footer>
+      <p>Past-paper questions filtered from SEC Junior Cycle Higher Level Mathematics, 2022–2025. Questions tagged
+        <strong>Exam Style</strong> cover gaps not tested in those papers but standard in school exams. Official papers
+        at <strong>examinations.ie</strong>.</p>
+    </footer>
+
+  </main>
+
+  <script>
+    // ── NAV HIGHLIGHT ──────────────────────────────────────────────────────────
+    const sections = document.querySelectorAll('section.topic');
+    const navlinks = document.querySelectorAll('.navlink');
+    function updateActive() {
+      let current = '';
+      const offset = 120;
+      sections.forEach(s => {
+        if (window.scrollY + offset >= s.offsetTop) current = s.id;
+      });
+      navlinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+      });
+    }
+    window.addEventListener('scroll', updateActive);
+    window.addEventListener('load', updateActive);
+
+    // ── PROGRESS TRACKING ─────────────────────────────────────────────────────
+    const STORAGE_KEY = 'samuel-exam-progress-v1';
+
+    const STATUS = {
+      'not-tried': { label: 'Not tried',   next: 'attempted', cls: ''         },
+      'attempted':  { label: 'Attempted',   next: 'got-it',    cls: 'attempted' },
+      'got-it':     { label: '✓  Got it',   next: 'not-tried', cls: 'got-it'   }
+    };
+
+    function loadData() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+      catch(e) { return {}; }
+    }
+    function saveData(d) { localStorage.setItem(STORAGE_KEY, JSON.stringify(d)); }
+
+    // ── ASSIGN QIDs ────────────────────────────────────────────────────────────
+    // Each card gets data-qid = "<section-id>-<n>" e.g. "area-volume-1"
+    document.querySelectorAll('section.topic').forEach(sec => {
+      sec.querySelectorAll('.qcard').forEach((card, i) => {
+        card.dataset.qid = sec.id + '-' + (i + 1);
+      });
+    });
+
+    // ── INJECT SECTION PROGRESS BARS ──────────────────────────────────────────
+    document.querySelectorAll('section.topic').forEach(sec => {
+      const intro = sec.querySelector('p.intro');
+      const bar = document.createElement('div');
+      bar.className = 'sec-progress';
+      bar.id = 'sp-' + sec.id;
+      bar.innerHTML =
+        '<div class="sec-progress-label">' +
+          '<span class="sp-text">0 / 0 done</span>' +
+          '<span class="sp-revisit" style="display:none">0 to revisit</span>' +
+        '</div>' +
+        '<div class="sec-progress-track">' +
+          '<div class="sp-fill-got"  style="width:0"></div>' +
+          '<div class="sp-fill-tried" style="width:0"></div>' +
+        '</div>';
+      sec.insertBefore(bar, intro);
+    });
+
+    // ── INJECT STATUS ROWS INTO EACH CARD ─────────────────────────────────────
+    document.querySelectorAll('.qcard').forEach(card => {
+      const qid = card.dataset.qid;
+      const row = document.createElement('div');
+      row.className = 'status-row';
+      row.innerHTML =
+        '<button class="btn-status" data-qid="' + qid + '">Not tried</button>' +
+        '<button class="btn-revisit" data-qid="' + qid + '" title="Flag for revisit">🔖</button>' +
+        '<span class="status-hint">click to update</span>';
+      card.appendChild(row);
+    });
+
+    // ── APPLY SAVED STATE TO UI ────────────────────────────────────────────────
+    function applyCardState(card, state) {
+      const qid = card.dataset.qid;
+      const s   = state || { status: 'not-tried', revisit: false };
+      const cfg = STATUS[s.status] || STATUS['not-tried'];
+
+      const btn = card.querySelector('.btn-status[data-qid="' + qid + '"]');
+      btn.textContent = cfg.label;
+      btn.className   = 'btn-status' + (cfg.cls ? ' ' + cfg.cls : '');
+
+      const flag = card.querySelector('.btn-revisit[data-qid="' + qid + '"]');
+      flag.classList.toggle('flagged', !!s.revisit);
+
+      const hint = card.querySelector('.status-hint');
+      hint.style.display = s.status === 'not-tried' ? '' : 'none';
+    }
+
+    function refreshAll() {
+      const data = loadData();
+      document.querySelectorAll('.qcard').forEach(card => {
+        applyCardState(card, data[card.dataset.qid]);
+      });
+      document.querySelectorAll('section.topic').forEach(refreshSectionBar);
+      refreshOverall();
+    }
+
+    // ── SECTION PROGRESS BAR ──────────────────────────────────────────────────
+    function refreshSectionBar(sec) {
+      const data  = loadData();
+      const cards = sec.querySelectorAll('.qcard');
+      const total = cards.length;
+      let gotIt = 0, tried = 0, revisit = 0;
+      cards.forEach(card => {
+        const s = data[card.dataset.qid] || {};
+        if (s.status === 'got-it')    gotIt++;
+        if (s.status === 'attempted') tried++;
+        if (s.revisit)                revisit++;
+      });
+
+      const bar = document.getElementById('sp-' + sec.id);
+      if (!bar) return;
+      bar.querySelector('.sp-text').textContent =
+        gotIt + ' / ' + total + ' done';
+      const rBadge = bar.querySelector('.sp-revisit');
+      if (revisit > 0) {
+        rBadge.textContent = revisit + ' to revisit';
+        rBadge.style.display = '';
+      } else {
+        rBadge.style.display = 'none';
+      }
+      const pctGot   = (gotIt  / total * 100).toFixed(1);
+      const pctTried = (tried  / total * 100).toFixed(1);
+      bar.querySelector('.sp-fill-got').style.width   = pctGot   + '%';
+      bar.querySelector('.sp-fill-tried').style.width = pctTried + '%';
+    }
+
+    // ── OVERALL SUMMARY ────────────────────────────────────────────────────────
+    function refreshOverall() {
+      const data   = loadData();
+      const cards  = document.querySelectorAll('.qcard');
+      const total  = cards.length;
+      let gotIt = 0, tried = 0, revisit = 0;
+      cards.forEach(card => {
+        const s = data[card.dataset.qid] || {};
+        if (s.status === 'got-it')    gotIt++;
+        if (s.status === 'attempted') tried++;
+        if (s.revisit)                revisit++;
+      });
+      document.getElementById('op-gotit').textContent   = gotIt;
+      document.getElementById('op-tried').textContent   = tried;
+      document.getElementById('op-revisit').textContent = revisit;
+      document.getElementById('op-total').textContent   = total;
+    }
+
+    // ── EVENT: cycle status button ─────────────────────────────────────────────
+    document.addEventListener('click', function(e) {
+      if (!e.target.matches('.btn-status')) return;
+      const qid  = e.target.dataset.qid;
+      const data = loadData();
+      const cur  = (data[qid] || {}).status || 'not-tried';
+      data[qid]  = Object.assign({}, data[qid] || {}, { status: STATUS[cur].next });
+      saveData(data);
+      const card = document.querySelector('.qcard[data-qid="' + qid + '"]');
+      applyCardState(card, data[qid]);
+      refreshSectionBar(card.closest('section.topic'));
+      refreshOverall();
+    });
+
+    // ── EVENT: toggle revisit flag ─────────────────────────────────────────────
+    document.addEventListener('click', function(e) {
+      if (!e.target.matches('.btn-revisit')) return;
+      const qid  = e.target.dataset.qid;
+      const data = loadData();
+      const cur  = (data[qid] || {}).revisit || false;
+      data[qid]  = Object.assign({}, data[qid] || {}, { revisit: !cur });
+      saveData(data);
+      const card = document.querySelector('.qcard[data-qid="' + qid + '"]');
+      applyCardState(card, data[qid]);
+      refreshSectionBar(card.closest('section.topic'));
+      refreshOverall();
+    });
+
+    // ── EXPORT PROGRESS ────────────────────────────────────────────────────────
+    document.getElementById('btn-export').addEventListener('click', function() {
+      const data  = loadData();
+      const cards = document.querySelectorAll('.qcard');
+      const rows  = [];
+      let gotIt = 0, tried = 0, revisit = 0;
+
+      cards.forEach(card => {
+        const qid   = card.dataset.qid;
+        const title = (card.querySelector('.qtitle') || {}).textContent || '';
+        const s     = data[qid] || { status: 'not-tried', revisit: false };
+        if (s.status === 'got-it')    gotIt++;
+        if (s.status === 'attempted') tried++;
+        if (s.revisit)                revisit++;
+        rows.push(
+          s.status.padEnd(12) +
+          (s.revisit ? '🔖 ' : '   ') +
+          qid.padEnd(22) +
+          title.trim()
+        );
+      });
+
+      const date    = new Date().toLocaleDateString('en-IE', { day:'2-digit', month:'short', year:'numeric' });
+      const summary =
+        'Samuel — Exam Progress Report (' + date + ')\n' +
+        '='.repeat(50) + '\n' +
+        'Got it: ' + gotIt + '  |  Attempted: ' + tried +
+        '  |  Revisit flagged: ' + revisit +
+        '  |  Total: ' + cards.length + '\n' +
+        '='.repeat(50) + '\n\n' +
+        rows.join('\n');
+
+      const blob = new Blob([summary], { type: 'text/plain' });
+      const a    = document.createElement('a');
+      a.href     = URL.createObjectURL(blob);
+      a.download = 'samuel-progress-' + new Date().toISOString().slice(0,10) + '.txt';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+
+    // ── RESET ALL ──────────────────────────────────────────────────────────────
+    document.getElementById('btn-reset-all').addEventListener('click', function() {
+      if (!confirm('Reset all progress? This cannot be undone.')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      refreshAll();
+    });
+
+    // ── INIT ───────────────────────────────────────────────────────────────────
+    refreshAll();
+  </script>
+
+</body>
+
+</html>
